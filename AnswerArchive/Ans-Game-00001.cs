@@ -1,7 +1,7 @@
 namespace CSharp;
 class Program
 {
-    static void Main(string[] args)
+    static void StartGame()
     {
         Random rnd = new Random();
         Console.WriteLine(string.Join("", Enumerable.Repeat("-", 40)));
