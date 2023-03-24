@@ -35,7 +35,7 @@ foreach (var item in tower.lines)
     int cnt = (((tower.bottom) - item.Length) / 2);
     // 왼쪽에 빈 공간을 넣어 삼각형 만들기
     var str = item.Insert(0, cnt > 0 ? new String(' ', cnt) : string.Empty);
-    
+
     // 별 라인 문자에서 사이 사이에 공간 문자 넣기 표현식
     var rs = System.Text.RegularExpressions.Regex.Replace(str, ".{1}", "$0 ");
     // 그리기
@@ -50,18 +50,18 @@ public class Tower
 {
     // 층수에 따라 바닥 타일 수 설정 속성
     public int bottom { get; set; }
-    
+
     // 층별 라인 목록
     public List<string> lines { get; set; }
-    
+
     public Tower(int floor)
     {
         // 바닥 타일 수 할당
         bottom = Math.Abs(1 - (2 * floor));
-        
+
         // 층별 라인 목록 변수 초기화 
         lines = new List<string>();
-        
+
         // 피라미드 만들기
         MakeTower(bottom, '*');
     }
@@ -76,15 +76,15 @@ public class Tower
     {
         // base case
         if (number < 1) return;
-        
+
         // 각 층별로 양짝 줄이면서
         // Call Stack (콜 스택 쌓기)
         MakeTower(number - 2, draw);
-        
+
         // 다 만들고 나서 스택으로 부터 하나썩 꺼내 
         // 각 층별로 별표 찍기 문자열 생성
         var line = new string(draw, number);
-        
+
         // 추가 가공을 위하여 목록에 저장해 놓기
         lines.Add(line);
     }
