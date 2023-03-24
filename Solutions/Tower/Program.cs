@@ -38,6 +38,7 @@ Console.WriteLine();
 // 널찍하고 안정감 있게 피라미드 만들기
 Console.WriteLine("== 널찍하게 ==");
 Console.WriteLine();
+
 foreach (var item in tower.lines)
 {
     // 가운데 정렬을 위하여 별수에 따른 왼쪽 공간의 수 구하기
@@ -61,7 +62,7 @@ Console.WriteLine();
 /// </summary>
 public class Tower
 {
-    // 층수에 따라 바닥 타일 수 설정 속성
+    // 층수에 따라 총 바닥 타일 수 설정 속성
     public int bottom { get; set; }
 
     // 층별 라인 목록
