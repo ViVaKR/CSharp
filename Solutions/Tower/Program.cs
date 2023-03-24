@@ -6,14 +6,32 @@
 // -> 리스트로 부터 취향에 맞게 출력하는 알고리즘
 // 피라미드 구현 클래스 인스턴스 생성 //
 
-const int plan = 9;
-var tower = new Tower(plan);
+int plan = 7; // 기본 층수
+bool check = false;
+do //백룸
+{
+    Console.WriteLine("몇층 피라미드를 만드시겠습니까? (30층 이하, 홀수 정수)");
+    
+    Console.Write(" $ 입력 >> ");
+    
+    check = int.TryParse(Console.ReadLine(), out plan);
+    
+    if(!check || plan > 30 || plan % 2 == 0)
+    {
+        Console.WriteLine("30층 이하 홀수 숫자만 입력하여 주세요...");
+        check = false;
+        continue;
+    }
+} while (!check);
 
-// 한줄 모냥내기
+//== 피라미드 구현 클래스 라이브러리 인스턴스 생성 ==//
+var tower = new Tower(plan);
+//=============================================//
+
+// 일단 한줄 모냥내기
 Console.WriteLine();
 
-// 촘촘하고 빼죽하면서
-// 사이사이 라인이 그러진 피라미드 만들기
+//=> (1형) 촘촘하고 빼죽하면서 사이사이 라인이 그러진 피라미드 만들기
 Console.WriteLine("== 촘촘하게 ==");
 Console.WriteLine();
 foreach (var item in tower.lines)
@@ -32,13 +50,10 @@ foreach (var item in tower.lines)
     Console.WriteLine(underLine.Insert(0, leftSpace));
 }
 
-// 한줄 띄기 (미용파트)
 Console.WriteLine();
-
-// 널찍하고 안정감 있게 피라미드 만들기
+//=> (2형) 널찍하고 안정감 있게 피라미드 만들기
 Console.WriteLine("== 널찍하게 ==");
 Console.WriteLine();
-
 foreach (var item in tower.lines)
 {
     // 가운데 정렬을 위하여 별수에 따른 왼쪽 공간의 수 구하기
@@ -76,7 +91,7 @@ public class Tower
         // 층별 라인 목록 변수 초기화 
         lines = new List<string>();
 
-        // 피라미드 만들기
+        // 피라미드 만들기 트리거
         MakeTower(bottom, '*');
     }
 
@@ -102,7 +117,7 @@ public class Tower
     }
 }
 
-//== 재귀함수가 작동하는, 돌아가는 알고리즘 해석 ==//
+//== (알고나면 무서운 해석) 재귀함수가 작동하는 알고리즘 해석 ==//
 // Call Stack Orders , 7층을 기준으로 함.
 // 재귀함수가 콜스택에 쌓고(1층이 스택바닥) 빼내는 순서 //
 //================================================================================================//
