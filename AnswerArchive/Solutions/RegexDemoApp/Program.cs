@@ -1,6 +1,11 @@
-﻿using System.Diagnostics;
+﻿using System.Net.Mime;
+using System.Collections.Generic;
+using System.Text;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.ComponentModel.DataAnnotations;
+
+
 /*
  * ^    - Start with
  * $    - Ends with
@@ -32,7 +37,7 @@ pattern = @"(\s|^)Viv(\s|$)"; // Viv 앞에 공백 또는 Viv 로 시작, Viv �
 pattern = @"(\s|^)Viv(\s|$)";
 
 // Test List
-// Console.WriteLine("Viv Hello => " + Regex.IsMatch("Viv Hello", pattern, RegexOptions.IgnoreCase));
+Console.WriteLine("Viv Hello => " + Regex.IsMatch("Viv Hello", pattern, RegexOptions.IgnoreCase));
 // Console.WriteLine("VivaKR Hello => " + Regex.IsMatch("VivaKR Hello", pattern));
 // Console.WriteLine("Hello Vivakr World => " + Regex.IsMatch("Hello Vivakr World", pattern));
 // Console.WriteLine("I am Viv akr World => " + Regex.IsMatch("Hello Viv akr World", pattern));
@@ -52,3 +57,15 @@ for (int i = 0; i < 100_000; i++)
 watch.Stop();
 Console.WriteLine($"Time Elapsed in ms: {watch.ElapsedMilliseconds}");
 */
+
+Console.Clear();
+// Print the header.
+Console.Write("Name               ");
+Console.Write("CodePage  ");
+Console.Write("BodyName           ");
+Console.Write("HeaderName         ");
+Console.Write("WebName            ");
+Console.WriteLine("Encoding.EncodingName");
+
+// For every encoding, compare the name properties with EncodingInfo.Name.
+// Display only the encodings that have one or more different names.
