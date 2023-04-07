@@ -20,6 +20,10 @@
     dotnet build
     
     dotnet restore
-    
-    
 ```
+
+## Projects Info
+
+1. Demo-Console
+2. Demo-WebApi
+3. Demo-WebApp
