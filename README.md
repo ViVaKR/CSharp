@@ -4,14 +4,22 @@
 
 ```bash
     # Create new Solution
-    dotnet new sln --name MySolution
+    dotnet new sln --output Solution.Demos
     
     # Create new Project
-    dotnet new console --output Projects/VivConsole
+    dotnet new console --name Demo-Console --output Demo-Console
     
-    # Solution Add Priject
-    dotnet sln add Projects/VivConsole # (Remove) $ dotnet sln remove Projects/VivConsole
+    # Add Project 
+    dotnet sln add Projects/VivConsole 
     
+    # Remove Project
+    dotnet sln VivSolution.sln remove Projects/VivConsole/VivConsole.csproj
     # Get Solution Project list
     dotnet sln list
+    
+    dotnet build
+    
+    dotnet restore
+    
+    
 ```
