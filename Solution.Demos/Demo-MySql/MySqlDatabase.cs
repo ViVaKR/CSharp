@@ -1,7 +1,7 @@
 
 using MySqlConnector;
-
-namespace Demo_Console
+// dotnet add package MySqlConnector
+namespace Demo_MySql
 {
     public class MySqlHelper
     {
@@ -10,10 +10,10 @@ namespace Demo_Console
             var builder = new MySqlConnectionStringBuilder
             {
                 Server = "172.30.1.10",
-                Port = 33060,
-                Database = "데이터베이스",
-                UserID = "아이디",
-                Password = "비밀번호"
+                Port = 59073,
+                Database = "Shop",
+                UserID = "viv",
+                Password = "B9037!m8947#"
             };
 
             using var conn = new MySqlConnection(builder.ConnectionString);

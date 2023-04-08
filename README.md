@@ -6,7 +6,8 @@
     # Create new Solution
     dotnet new sln --output Solution.Demos
     
-    # Create new Project
+    # Create new Project : 
+    # with main -> $ dotnet new console --use-program-main
     dotnet new console --name Demo-Console --output Demo-Console
     
     # Add Project 
@@ -22,8 +23,18 @@
     dotnet restore
 ```
 
-## Projects Info
+## Intellisense
 
-1. Demo-Console
-2. Demo-WebApi
-3. Demo-WebApp
+1. VSCode Editor : `Ctrl + Shift + p`
+2. `OmniSharp 프로젝트 선택` 을 선택하고 Enter 키를 누릅니다.
+3. 솔루션 작업 영역 항목을 선택합니다.
+
+## Include Resource : `.csproj`
+
+```xml
+    <ItemGroup>
+        <Content Include="test.txt">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+```

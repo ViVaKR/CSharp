@@ -1,7 +1,7 @@
 using System.Net;
 using System.Text;
 
-namespace Demo_Console;
+namespace Demo_WebServer;
 
 public class SimpleWebServer
 {
