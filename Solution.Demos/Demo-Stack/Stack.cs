@@ -17,7 +17,7 @@ namespace Demo_Stack
 
         public Stack()
         {
-
+            stack = new int[1];
         }
 
         public void Start()
