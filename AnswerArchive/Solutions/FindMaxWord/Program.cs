@@ -16,7 +16,6 @@ namespace Exampls
             var maxWord = new GetMaxRepeatedWord();
             maxWord.Start();
         }
-
     }
 
     /// <summary>
