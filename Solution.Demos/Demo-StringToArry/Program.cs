@@ -2,10 +2,9 @@
 namespace Demo_StringToArry;
 public class Program
 {
-
     public static void Main(string[] args)
     {
-        var line = string.Join("", Enumerable.Repeat("-", 100));
+        var line = string.Join(string.Empty, Enumerable.Repeat("-", Console.LargestWindowWidth));
 
         string inStr = "내가 그의 이름을 불러주기 전에는 그는 다만 하나의 몸짓에 지나지 않았다.\n";
         inStr += "내가 그의 이름을 불러주었을 때, 그는 내게로 와 꽃이 되었다.\n";
@@ -14,7 +13,7 @@ public class Program
         inStr += "우리들은 모두 무엇이 되고 싶다.\n";
         inStr += "나는 너에게 너는 나에게 잊혀지지 않는 하나의 눈짓이 되고 싶다.";
 
-        // (추가 문의 사항) 문자열(Word) 단위가 아닌 문자(sentence)로 출력하기
+        // (추가 문의 사항) 문자열(Word) 단위가 아닌 문자(character)로 출력하기
         // inStr 의 sentence 를 문자(charater array) 만들기를 진행합니다.
 
         // 원본
@@ -29,20 +28,20 @@ public class Program
         var removed = Regex.Replace(inStr, @"\s+", string.Empty);
         Console.WriteLine(removed);
         Console.WriteLine();
-        
+
         // 문자 배열생성 후 정렬
         Console.WriteLine("=== 문자 배열생성 후 정렬 ===");
         var charArray = removed.ToCharArray();
         Array.Sort(charArray);
         Console.WriteLine(string.Join(string.Empty, charArray));
         Console.WriteLine(line);
-        
+
         // 문자 단위로 그룹화 후 새로운 객체 생성 `{ 문자, 갯수 }`
         var groupChar = charArray.GroupBy(g => g).Select(s => new
         {
             문자 = s.Key,
             갯수 = s.Count()
-        }).OrderByDescending(o=>o.갯수).ToList();
+        }).OrderByDescending(o => o.갯수).ToList();
         Console.WriteLine();
         // 많은 갯수 부터 역방향으로 전체 출력하기
         Console.WriteLine("=== 많은 갯수 부터 역방향으로 전체 출력하기 ===");
@@ -50,7 +49,7 @@ public class Program
         {
             Console.WriteLine($"{ch.문자} - {ch.갯수}");
         }
-        
+
         // 상위 5개 출력하기
         Console.WriteLine("=== 상위 5개 출력하기 ===");
         foreach (var ch in groupChar.Take(5))
