@@ -11,15 +11,18 @@
     dotnet new console --name Demo-Console --output Demo-Console
     
     # Add Project 
-    dotnet sln add Projects/VivConsole 
+    dotnet sln add VivConsole 
     
     # Remove Project
-    dotnet sln VivSolution.sln remove Projects/VivConsole/VivConsole.csproj
+    dotnet sln remove VivConsole
+    
     # Get Solution Project list
     dotnet sln list
     
+    # Solution build
     dotnet build
     
+    # Solution restor
     dotnet restore
 ```
 
