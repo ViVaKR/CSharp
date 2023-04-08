@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-SocketServer", "Demo-S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-StringToArry", "Demo-StringToArry\Demo-StringToArry.csproj", "{54F82247-0855-4205-AD68-350E38969EFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringLib", "StringLib\StringLib.csproj", "{ADC54C75-4DFF-47E6-BC6A-BC1C9CC73E14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-ShowCase", "Demo-ShowCase\Demo-ShowCase.csproj", "{DAFA776A-FB16-481F-9A33-C4A5C0D415D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,5 +88,13 @@ Global
 		{54F82247-0855-4205-AD68-350E38969EFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54F82247-0855-4205-AD68-350E38969EFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54F82247-0855-4205-AD68-350E38969EFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADC54C75-4DFF-47E6-BC6A-BC1C9CC73E14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADC54C75-4DFF-47E6-BC6A-BC1C9CC73E14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADC54C75-4DFF-47E6-BC6A-BC1C9CC73E14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADC54C75-4DFF-47E6-BC6A-BC1C9CC73E14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAFA776A-FB16-481F-9A33-C4A5C0D415D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAFA776A-FB16-481F-9A33-C4A5C0D415D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAFA776A-FB16-481F-9A33-C4A5C0D415D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAFA776A-FB16-481F-9A33-C4A5C0D415D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

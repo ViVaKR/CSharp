@@ -26,7 +26,7 @@
     dotnet restore
 ```
 
-## Intellisense
+## VSCode Intellisense
 
 1. VSCode Editor : `Ctrl + Shift + p`
 2. `OmniSharp 프로젝트 선택` 을 선택하고 Enter 키를 누릅니다.
@@ -40,4 +40,32 @@
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
+```
+
+## Create `class library`
+
+```bash
+dotnet new sln
+dotnet new classlib -o StringLibrary
+dotnet sln add StringLibrary
+
+# editing StringLibrary class...
+dotnet build
+
+# create new console app project to the solution
+# $ dotnet new console -o ShowCase 
+dotnet add ShowCase reference StringLibrary
+
+# ShowCase.csproj 
+### '
+  <ItemGroup>
+    <ProjectReference Include="..\StringLib\StringLib.csproj" />
+  </ItemGroup>
+### '
+# Change `class1` to StringLibrary and namespace common-name like `UtilityLibraries`
+
+dotnet build
+
+# run
+dotnet run --project ShowCase/ShowCase.csproj
 ```
