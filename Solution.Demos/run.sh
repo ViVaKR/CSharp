@@ -8,6 +8,7 @@ echo "Demo-TypeConversion : 6"
 echo "Demo-StudentTest : 7"
 echo "Demo-Hash : 8"
 echo "Demo-SocketServer : 9"
+echo "Demo-StringToArry : 11"
 echo
 read -p " : " SERVICE
 echo
@@ -25,6 +26,7 @@ case "$SERVICE" in
     '7') dotnet run --project Demo-StudentTest;;
     '8') dotnet run --project Demo-Hash;;
     '9') dotnet run --project Demo-SocketServer;;
+    '11') dotnet run --project Demo-StringToArry;;
     *) echo "Never heard of ${SERVICE}, sorry"
        exit 1
        ;;
