@@ -4,6 +4,7 @@ echo "Infix To Postfix : 2"
 echo "Regular Express : 3"
 echo "Convert To Base64 : 4"
 echo "MySql Database : 5"
+echo "Demo-TypeConversion : 6"
 echo
 read -p " : " SERVICE
 echo
@@ -17,6 +18,7 @@ case "$SERVICE" in
     '3') dotnet run --project Demo-RegEx;;
     '4') dotnet run --project Demo-ToBase64;;
     '5') dotnet run --project Demo-MySql;;
+    '6') dotnet run --project Demo-TypeConversion;;
     *) echo "Never heard of ${SERVICE}, sorry"
        exit 1
        ;;
