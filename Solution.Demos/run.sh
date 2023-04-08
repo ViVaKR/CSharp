@@ -6,6 +6,7 @@ echo "Convert To Base64 : 4"
 echo "MySql Database : 5"
 echo "Demo-TypeConversion : 6"
 echo "Demo-StudentTest : 7"
+echo "Demo-Hash : 8"
 echo
 read -p " : " SERVICE
 echo
@@ -21,6 +22,7 @@ case "$SERVICE" in
     '5') dotnet run --project Demo-MySql;;
     '6') dotnet run --project Demo-TypeConversion;;
     '7') dotnet run --project Demo-StudentTest;;
+    '8') dotnet run --project Demo-Hash;;
     *) echo "Never heard of ${SERVICE}, sorry"
        exit 1
        ;;
