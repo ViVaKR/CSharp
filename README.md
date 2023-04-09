@@ -66,6 +66,12 @@ dotnet add ShowCase reference StringLibrary
 
 dotnet build
 
-# run
+## run
 dotnet run --project ShowCase/ShowCase.csproj
 ```
+
+## Redis
+
+- nuget
+  - Microsoft.Extensions.Caching.StackExchangeRedis
+    - .NET CLI `$ dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis`
