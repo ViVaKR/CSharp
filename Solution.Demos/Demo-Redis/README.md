@@ -26,6 +26,12 @@
     }
 ```
 
+## connect redis
+
+```bash
+    docker exec -it viv-redis redis-cli
+```
+
 ## $scan 0, $ hgetall `<key>`
 
 ```bash
