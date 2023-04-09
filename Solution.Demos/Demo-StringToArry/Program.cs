@@ -5,7 +5,6 @@ public class Program
     public static void Main(string[] args)
     {
         var line = string.Join(string.Empty, Enumerable.Repeat("-", Console.LargestWindowWidth));
-
         string inStr = "내가 그의 이름을 불러주기 전에는 그는 다만 하나의 몸짓에 지나지 않았다.\n";
         inStr += "내가 그의 이름을 불러주었을 때, 그는 내게로 와 꽃이 되었다.\n";
         inStr += "내가 그의 이름을 불러준 것처럼 나의 이 빛깔과 향기에 알맞는 누가 나의 이름을 불러다오.\n";
@@ -18,15 +17,15 @@ public class Program
 
         // 원본
         Console.WriteLine("=== 원본 ===");
-        Console.WriteLine(line);
         Console.WriteLine(inStr);
+        Console.WriteLine(line);
         Console.WriteLine();
-
         // 먼저 위 문장에서 모든 화이트스페이스 제거 하기 입니다. : Regular Expresstion -> `\s+`
         // 화이트스페이스 : Space, Tab, Line Feed, Form Feed, Carriage Return, Line TabUlation
         Console.WriteLine("=== 화이트스페이스 제거 ===");
         var removed = Regex.Replace(inStr, @"\s+", string.Empty);
         Console.WriteLine(removed);
+        Console.WriteLine(line);
         Console.WriteLine();
 
         // 문자 배열생성 후 정렬
@@ -35,7 +34,7 @@ public class Program
         Array.Sort(charArray);
         Console.WriteLine(string.Join(string.Empty, charArray));
         Console.WriteLine(line);
-
+        
         // 문자 단위로 그룹화 후 새로운 객체 생성 `{ 문자, 갯수 }`
         var groupChar = charArray.GroupBy(g => g).Select(s => new
         {
@@ -49,7 +48,8 @@ public class Program
         {
             Console.WriteLine($"{ch.문자} - {ch.갯수}");
         }
-
+        Console.WriteLine(line);
+        Console.WriteLine();
         // 상위 5개 출력하기
         Console.WriteLine("=== 상위 5개 출력하기 ===");
         foreach (var ch in groupChar.Take(5))
@@ -57,6 +57,7 @@ public class Program
             Console.WriteLine($"{ch.문자} - {ch.갯수}");
         }
         Console.WriteLine(line);
+        Console.WriteLine();
     }
 }
 
