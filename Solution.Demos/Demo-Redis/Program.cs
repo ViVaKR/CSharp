@@ -9,6 +9,13 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 
+// -> For Redis
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration.GetConnectionString("Redis"); // appsettings.json
+    options.InstanceName = "viv_redis_"; // unique key, value pair 
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
