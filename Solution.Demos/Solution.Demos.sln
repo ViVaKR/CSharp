@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-ShowCase", "Demo-ShowC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-Redis", "Demo-Redis\Demo-Redis.csproj", "{946FCCDE-DE45-4DB5-836A-35BCAC383877}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-ImportCppLib", "Demo-ImportCppLib\Demo-ImportCppLib.csproj", "{63071AE0-F57C-4919-B81A-6C5C0E73C3DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -102,5 +104,9 @@ Global
 		{946FCCDE-DE45-4DB5-836A-35BCAC383877}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{946FCCDE-DE45-4DB5-836A-35BCAC383877}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{946FCCDE-DE45-4DB5-836A-35BCAC383877}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63071AE0-F57C-4919-B81A-6C5C0E73C3DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63071AE0-F57C-4919-B81A-6C5C0E73C3DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63071AE0-F57C-4919-B81A-6C5C0E73C3DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63071AE0-F57C-4919-B81A-6C5C0E73C3DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

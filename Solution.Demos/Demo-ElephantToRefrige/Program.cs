@@ -87,3 +87,5 @@ public class Refrige
         Console.WriteLine(IsOpen ? "냉장고 문을 연다." : "냉장고 문을 닫는다");
     }
 }
+
+// https://github.com/ViVaKR/CSharp/blob/7393e02980aca4483cfe5c0bf2da6f71cd3ca029/Solution.Demos/Demo-ElephantToRefrige/Program.cs
