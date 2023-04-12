@@ -1,8 +1,9 @@
 ﻿namespace Util;
 public static class StringLib
 {
-    public static bool StartsWithUpper(this string? str){
-        if(string.IsNullOrWhiteSpace(str))
+    public static bool StartsWithUpper(this string? str)
+    {
+        if (string.IsNullOrWhiteSpace(str))
             return false;
 
         char ch = str[0];

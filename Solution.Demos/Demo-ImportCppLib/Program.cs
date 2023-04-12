@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 namespace Demo_ImportCppLib;
 class Program
 {
-    [DllImport("demo.dylib")]
+    [DllImport("Resources/Libs/demo.dylib")]
     public static extern int demo(int arg1, string arg2);
     static void Main(string[] args)
     {
