@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # op : -eq, -ne, -lt, -le, -gt, -ge
 echo "Start Web Server : 1"
 echo "Infix To Postfix : 2"
