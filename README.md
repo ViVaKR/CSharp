@@ -70,6 +70,22 @@ dotnet build
 dotnet run --project ShowCase/ShowCase.csproj
 ```
 
+---
+
+## IEnumerable, ICollection, IList And List
+
+|Interface|Scenario|
+|-|-|
+|IEnumerable<br/>IEnumerable<T>| The only thing you want is to iterate over the elements in a collection. You only need read-only access to that collection.|
+|ICollection, ICollection<T>|You want to modify the collection or you care about its size.|
+|IList, IList<T>|You want to modify the collection and you care about the ordering and / or positioning of the elements in the collection.|
+| List<br/>List<T> |Since in object oriented design you want to depend on abstractions instead of implementations, you should never have a member of your own implementations with the concrete type List/List.|
+
+
+(Ref.) [When To Use IEnumerable, ICollection, IList And List](https://www.claudiobernasconi.ch/2013/07/22/when-to-use-ienumerable-icollection-ilist-and-list/)
+
+---
+
 ## Redis
 
 - nuget

@@ -12,6 +12,7 @@ echo "Demo-Hash : 8"
 echo "Demo-SocketServer : 9"
 echo "Demo-StringToArry : 11"
 echo "Demo-ImportCppLib : 12"
+echo "Demo-JiSikin : 13"
 echo
 read -p " : " SERVICE
 echo
@@ -31,6 +32,7 @@ case "$SERVICE" in
     '9') dotnet run --project Demo-SocketServer;;
     '11') dotnet run --project Demo-StringToArry;;
     '12') dotnet run --project Demo-ImportCppLib;;
+    '13') dotnet run --project Demo-JiSikin;;
     *) echo "Never heard of ${SERVICE}, sorry"
        exit 1
        ;;
