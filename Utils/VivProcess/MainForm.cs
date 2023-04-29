@@ -15,12 +15,7 @@ namespace VivProcess
         private const string started = "**** Started *****";
         private const string stopped = "**** Stopped *****";
 
-        private readonly System.Windows.Forms.Timer timer;
-
-        //* 타이머 오류 처리 *//
-        // System.Threading.Timer 사이에 모호한 참조 -> 라인 제거
-        //
-        //-> System.Windows.Forms.Timer timer;
+        private readonly Timer timer;
 
         private readonly Stopwatch watch;
         private readonly Proc ps;
@@ -39,19 +34,25 @@ namespace VivProcess
 
             Btn_KillProcess.Enabled = false;
             isWatch = false;
-            Btn_StartAdmin.Text = isWatch ? "Stop Watcher" : "Start Watcher";
+            Btn_StartAdmin.Text = isWatch ? "Stop Watcher (Admin)" : "Start Watcher (Admin)";
             // 프로세서 
             ps = new Proc();
 
             // 타이머
             timer = new Timer { Interval = 1000 }; // 매초
-            // timer = new Timer { Interval = 1000 * 60 * 60 }; // 60 분
 
             timer.Tick += Timer_Tick;
             timer.Start();
 
             // 손목시계
             watch = new Stopwatch();
+
+            Load += MainForm_Load;
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            AutoStartWithNormal();
         }
 
         private void SetButtonsWidth()
@@ -63,74 +64,55 @@ namespace VivProcess
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            string message = watch.Elapsed.Seconds == 0
-                ? $"{title}\n{proc} Not Runnig..."
-                : $"{title}\n{proc} Started... {watch.Elapsed.Seconds} 초 경과";
+            int elapsed = watch.Elapsed.Seconds;
 
-            Lbl_Status.Text = $"{message}";
+            string message = $"{title}\n{proc} Started... {elapsed} 초 경과";
 
-            Application.DoEvents();
+            if (elapsed == 3600) // 60분 = 3600
+            {
+                timer.Stop();
+                watch.Stop();
+                ShowMessage(elapsed);
+
+                timer.Start();
+                watch.Start();
+            }
+
+            Lbl_Status.Text = message;
         }
 
-        #region Admin Privilege Watcher
-        private void Btn_Start_Admin_Click(object sender, EventArgs e)
+        private void ShowMessage(int elaspsed)
         {
-            // 프로세스 시작 및 중지 이벤트
-            ps.watcher_start_admin.EventArrived += Watcher_Started_Admin_EventArrived;
-            ps.watcher_stop_admin.EventArrived += Watcher_Stopped_Admin_EventArrived;
-
-            // 감시시작
-            ps.StartWatch();
-
-            isWatch = !isWatch;
-
-            // 버튼 토글시 감시중지
-            if (!isWatch) ps.StopWatch();
-            else ps.StartWatch();
-
-            Btn_StartAdmin.Text = isWatch ? "Stop Watcher (Admin)" : "Start Watcher (Admin)";
-        }
-
-        private void Watcher_Stopped_Admin_EventArrived(object sender, EventArrivedEventArgs e)
-        {
-            // 중지된 프로세스가 감시 목록에 있는 것인지 이름으로 확인
-            string procName = e.NewEvent.Properties["ProcessName"]?.Value?.ToString();
-            if (!procName.Equals(proc)) return;
-
-            //// 맞으면 손목시계 초기화
-            watch.Stop();
+            MessageBox.Show($"({elaspsed / 60 / 60}) 시간 다 되었습니다. 먼가 합시다. 초시계 초기화 합니다.");
             watch.Reset();
-            SetKillButton(false);
         }
-
-        private void Watcher_Started_Admin_EventArrived(object sender, EventArrivedEventArgs e)
-        {
-            // 시작된 프로세스가 감시 목록에 있는 것인지 이름으로 확인
-            string procName = e.NewEvent.Properties["ProcessName"]?.Value?.ToString();
-
-            if (!procName.Equals(proc)) return;
-            watch.Start();
-
-            SetKillButton(true);
-        }
-
-        #endregion
-
 
         #region Normal Privilege Watcher
 
         private void Btn_StartNormal_Click(object sender, EventArgs e)
         {
-            ps.watcher_start_normal.EventArrived += Watcher_Started_Normal_EventArrived;
-            ps.watcher_stop_normal.EventArrived += Watcher_Stopped_Normal_EventArrived;
+            AutoStartWithNormal();
+        }
 
+        private void AutoStartWithNormal()
+        {
             isWatch = !isWatch;
+            if (!isWatch)
+            {
+                ps.watcher_start_normal.EventArrived -= Watcher_Started_Normal_EventArrived;
+                ps.watcher_stop_normal.EventArrived -= Watcher_Stopped_Normal_EventArrived;
+                ps.StopNormal();
+                watch.Stop();
+                watch.Reset();
+            }
+            else
+            {
+                ps.watcher_start_normal.EventArrived += Watcher_Started_Normal_EventArrived;
+                ps.watcher_stop_normal.EventArrived += Watcher_Stopped_Normal_EventArrived;
+                ps.StartNormal();
+            };
+            SetButton(isWatch);
 
-            Btn_StartNormal.Text = (isWatch = !isWatch) ? "Stop Watcher (Normal)" : "Start Watcher (Normal)";
-
-            if (!isWatch) ps.StopNormal();
-            else ps.StartNormal();
-            ps.StartNormal();
         }
 
         private void Watcher_Stopped_Normal_EventArrived(object sender, EventArrivedEventArgs e)
@@ -147,6 +129,7 @@ namespace VivProcess
             // 초기화
             watch.Stop();
             watch.Reset();
+
             SetKillButton(false);
         }
 
@@ -164,7 +147,16 @@ namespace VivProcess
 
             // 풍부한 정보 제공용
             title = $"{started}\n{processName}\n- Process ID: {processId}\n- Parent ID: {parentProcessId}\n- File Path: {path}\n";
+
             SetKillButton(true);
+        }
+
+        private void SetButton(bool tf)
+        {
+            BeginInvoke((MethodInvoker)delegate
+            {
+                Btn_StartNormal.Text = tf ? "Stop Watcher (Normal)" : "Start Watcher (Normal)";
+            });
         }
 
         #endregion
@@ -186,6 +178,50 @@ namespace VivProcess
                 process.Kill();
             }
         }
+        #endregion
+
+        #region Admin Privilege Watcher
+        private void Btn_Start_Admin_Click(object sender, EventArgs e)
+        {
+            // 프로세스 시작 및 중지 이벤트
+
+            Btn_StartAdmin.Text = (isWatch = !isWatch) ? "Stop Watcher (Admin)" : "Start Watcher (Admin)";
+
+            // 버튼 토글시 감시중지
+            if (!isWatch)
+            {
+                ps.watcher_start_admin.EventArrived -= Watcher_Started_Admin_EventArrived;
+                ps.watcher_stop_admin.EventArrived -= Watcher_Stopped_Admin_EventArrived;
+                ps.StopWatch();
+                watch.Stop();
+                watch.Reset();
+            }
+            else
+            {
+                ps.watcher_start_admin.EventArrived += Watcher_Started_Admin_EventArrived;
+                ps.watcher_stop_admin.EventArrived += Watcher_Stopped_Admin_EventArrived;
+                ps.StartWatch();
+                watch.Restart();
+            }
+        }
+
+        private void Watcher_Stopped_Admin_EventArrived(object sender, EventArrivedEventArgs e)
+        {
+            string procName = e.NewEvent.Properties["ProcessName"]?.Value?.ToString();
+            if (!procName.Equals(proc)) return;
+            watch.Stop();
+            watch.Reset();
+            SetKillButton(false);
+        }
+
+        private void Watcher_Started_Admin_EventArrived(object sender, EventArrivedEventArgs e)
+        {
+            string procName = e.NewEvent.Properties["ProcessName"]?.Value?.ToString();
+            if (!procName.Equals(proc)) return;
+            watch.Start();
+            SetKillButton(true);
+        }
+
         #endregion
     }
 }
