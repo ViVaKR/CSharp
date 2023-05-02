@@ -61,15 +61,7 @@ dotnet add ShowCase reference StringLibrary
   <ItemGroup>
     <ProjectReference Include="..\StringLib\StringLib.csproj" />
   </ItemGroup>
-### '
-# Change `class1` to StringLibrary and namespace common-name like `UtilityLibraries`
-
-dotnet build
-
-## run
-dotnet run --project ShowCase/ShowCase.csproj
-```
-
+### `
 ---
 
 ## IEnumerable, ICollection, IList And List
