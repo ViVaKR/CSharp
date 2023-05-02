@@ -83,3 +83,7 @@ dotnet add ShowCase reference StringLibrary
 - nuget
   - Microsoft.Extensions.Caching.StackExchangeRedis
     - .NET CLI `$ dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis`
+
+
+---
+
