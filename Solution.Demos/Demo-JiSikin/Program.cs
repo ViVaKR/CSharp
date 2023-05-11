@@ -5,6 +5,8 @@ Console.WriteLine("2. UDP");
 Console.WriteLine("3. Ping");
 Console.WriteLine("4. 낙제한 학생/점수");
 Console.WriteLine("5. 파일 찾기/삭제하기");
+Console.WriteLine("6. 인터페이스 1");
+Console.WriteLine("7. Reflection Demo");
 
 Console.WriteLine();
 Console.Write("실행메뉴 선택 : ");
@@ -108,6 +110,52 @@ switch (choice)
             files.DeleteFilesWithFileName(di, targetFiles);
         }
         break;
+
+    case 6:
+        {
+            IDemo idemo = new ChildA();
+            idemo.DemoFunc();
+        }
+        break;
+
+    case 7: // Method Invoke
+        {
+            // Reflection To Call 
+            //! Reflection : 인스턴스를 동적으로 할당하거나
+            //! 메서드, 필드, 속성 등을 동적으로 호출 할 수 있는 기능을 통칭함
+            // 실행중인 코드에 대한 정보를 가져오고 조작하는 기능을 제공하는 API
+            // 컴파일된 코드이 형식(Type), 멤버(Member) 등에 대한 정보를 검사하고 수정
+            // 형식(Type) 정보 가져오기 : 이름, 어셈블리, 메서드, 속성, 필드, 이벤트,
+            // 객체 생성
+            // 메서드, 속성, 필드, 이벤트 등의 정보 가져오기
+            // 어셈블리 정보 가져오기
+            // 런타임 시간에 코드를 검사하고 실행가기 때문에 성능상의 문제 발생가능
+            // 캐싱 등의 방법으로 성능 최적화 필요 
+            Type t = typeof(ChildA);
+            var m = t.GetMethod("Print");
+            if (m == null) return;
+            var getParameters = m.GetParameters();
+            var setParameters = getParameters.Length == 0 ? null : new object[] { "안녕하세요 반갑습니다." };
+            var instance = Activator.CreateInstance(t);
+            if (instance == null) return;
+            m.Invoke(instance, setParameters);
+
+            // 파라미터가 있는 메서드
+            Action<string> print = Console.WriteLine;
+            print.Invoke("Hello World");
+            new Action<string>(Console.WriteLine).Invoke("Find Thanks And You");
+
+            // 파라미터 없는 메서드
+            new Action(Print).Invoke();
+
+            // 정적메서드 호출
+            System.Reflection.MethodInfo? writeLine = typeof(Console).GetMethod("WriteLine", new Type[] {typeof(string)});
+            writeLine?.Invoke(null, new object[] {"Fine Thanks And You?"});
+        }
+        break;
     default: return;
 }
 
+void Print() {
+    Console.WriteLine("Hello Demo");
+}
