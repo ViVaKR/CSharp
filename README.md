@@ -3,6 +3,7 @@
 ## Create Solution
 
 ```bash
+
     # Create new Solution
     dotnet new sln --output Solution.Demos
     
@@ -24,6 +25,9 @@
     
     # Solution restor
     dotnet restore
+
+    # Add Reference
+    dotnet add Demo-JiSikin.csproj reference ../Libs/Libs.csproj
 ```
 
 ## VSCode Intellisense
