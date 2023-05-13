@@ -1,7 +1,4 @@
-﻿using System;
-using System.Net.Mime;
-using System.Linq;
-using Helper;
+﻿using Helper;
 using Lib_TcpListener;
 using Lib_TcpClient;
 using Libs;
@@ -14,7 +11,8 @@ var menus = new List<string>{
     "Files", "Interface",
     "Reflection", "Switch",
     "TcpServer", "TcpClient",
-    "CSV", "CaesarCipher"
+    "CSV", "CaesarCipher",
+    "Check Internet", "Get html"
 };
 
 int choice;
@@ -32,7 +30,7 @@ do
             Console.WriteLine(text);
         else
             Console.Write(text);
-        
+
         i++;
     }
     Console.WriteLine();
@@ -216,7 +214,7 @@ switch (choice)
         }
         break;
 
-        case 12: // CaesarCipher
+    case 12: // CaesarCipher
         {
             var plain = "Hello World";
             var keyNumber = 15;
@@ -226,6 +224,30 @@ switch (choice)
 
             var decipher = CaesarCipher.CaesarDecipherText(cipher, keyNumber);
             Console.WriteLine(decipher);
+
+
         }
         break;
+
+    case 13: // 인터넷 연결확인
+        {
+            var tf = Utility.IsInternetConnected();
+            Console.WriteLine(tf ? "인터넷 연결 정상" : "인터넷 연결 없음");
+
+            TimeSpan timeSpan = new TimeSpan(13, 53, 44);
+            Console.WriteLine(timeSpan.TimeFormat());
+
+            Console.WriteLine($"{Utility.GetWebPage("http://ip.text.or.kr")}");
+        }
+        break;
+    
+    case 14: // Get Html 
+    {
+        Console.Write("웹 주소를 입력하세요 >> ");
+        string url = Console.ReadLine() ?? "http://ip.text.or.kr";
+
+        Console.WriteLine($"{Utility.GetWebPage(url)}");
+    }
+    break;
+
 }
