@@ -1,34 +1,63 @@
-﻿using Helper;
+﻿using System;
+using System.Net.Mime;
+using System.Linq;
+using Helper;
 using Lib_TcpListener;
 using Lib_TcpClient;
+using Libs;
 
-Console.Write("메뉴선택 >> ");
-Console.WriteLine("1. Money");
-Console.WriteLine("2. UDP");
-Console.WriteLine("3. Ping");
-Console.WriteLine("4. 낙제한 학생/점수");
-Console.WriteLine("5. 파일 찾기/삭제하기");
-Console.WriteLine("6. 인터페이스 1");
-Console.WriteLine("7. Reflection Demo");
-Console.WriteLine("8. Switch Demo");
-Console.WriteLine("9. TCP Listener");
-Console.WriteLine("10. TCP Client");
-Console.WriteLine("11. Read CSV");
+var pretty = string.Join(string.Empty, Enumerable.Repeat("-", 80));
 
-Console.WriteLine();
-Console.Write("실행메뉴 선택 : ");
+var menus = new List<string>{
+    "Exit", "Money", "UDP",
+    "Ping", "Student",
+    "Files", "Interface",
+    "Reflection", "Switch",
+    "TcpServer", "TcpClient",
+    "CSV", "CaesarCipher"
+};
+
 int choice;
-bool check = int.TryParse(Console.ReadLine(), out choice);
-Console.WriteLine();
-if (!check)
+bool check = false;
+do
 {
-    Console.WriteLine("잘못된 선택입니다. ");
-    return;
-}
-Console.Clear();
+    Console.WriteLine(pretty);
+    Console.WriteLine("MENU".PadLeft(40));
+    Console.WriteLine(pretty);
+    int i = 0;
+    foreach (var menu in menus)
+    {
+        var text = $"{i:000}. {menu}".PadRight(30);
+        if ((i + 1) % 3 == 1)
+            Console.WriteLine(text);
+        else
+            Console.Write(text);
+        
+        i++;
+    }
+    Console.WriteLine();
+    Console.WriteLine(pretty);
+    Console.WriteLine();
+    Console.Write("실행메뉴 선택 >>> ");
+
+    check = int.TryParse(Console.ReadLine(), out choice);
+    Console.WriteLine();
+    if (!check)
+    {
+        Console.WriteLine("잘못된 선택입니다. ");
+        Console.Clear();
+    }
+
+} while (!check);
+
 
 switch (choice)
 {
+    case 0:
+        {
+            Environment.Exit(0);
+        }
+        return;
     case 1:
         {
             Console.WriteLine(30_000_000.34M.ToDollar());
@@ -152,9 +181,6 @@ switch (choice)
             print.Invoke("Hello World");
             new Action<string>(Console.WriteLine).Invoke("Find Thanks And You");
 
-            // 파라미터 없는 메서드
-            new Action(Print).Invoke();
-
             // 정적메서드 호출
             System.Reflection.MethodInfo? writeLine = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) });
             writeLine?.Invoke(null, new object[] { "Fine Thanks And You?" });
@@ -179,7 +205,6 @@ switch (choice)
         {
             // TcpClients client = new();
             // client.Connect(DateTime.Now.ToLongDateString());
-
             SslTcpClient.RunClient("localhost", "123456", "./localhost.pfx");
         }
         break;
@@ -190,10 +215,17 @@ switch (choice)
             readCsv.Run();
         }
         break;
-    default: return;
-}
 
-void Print()
-{
-    Console.WriteLine("Hello Demo");
+        case 12: // CaesarCipher
+        {
+            var plain = "Hello World";
+            var keyNumber = 15;
+
+            var cipher = CaesarCipher.CaesarEncipherText(plain, keyNumber);
+            Console.WriteLine(cipher);
+
+            var decipher = CaesarCipher.CaesarDecipherText(cipher, keyNumber);
+            Console.WriteLine(decipher);
+        }
+        break;
 }

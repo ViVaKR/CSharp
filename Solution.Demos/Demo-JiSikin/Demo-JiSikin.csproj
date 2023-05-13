@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Lib_TcpListener\Lib_TcpListener.csproj" />
     <ProjectReference Include="..\Lib_TcpClient\Lib_TcpClient.csproj" />
+    <ProjectReference Include="..\Libs\Libs.csproj" />
   </ItemGroup>
 
   <ItemGroup>
