@@ -37,6 +37,3 @@ case "$SERVICE" in
        exit 1
        ;;
 esac
-echo
-echo
-echo "Complete..."

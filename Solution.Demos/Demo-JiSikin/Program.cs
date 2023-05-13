@@ -1,4 +1,7 @@
 ﻿using Helper;
+using Lib_TcpListener;
+using Lib_TcpClient;
+
 Console.Write("메뉴선택 >> ");
 Console.WriteLine("1. Money");
 Console.WriteLine("2. UDP");
@@ -7,6 +10,10 @@ Console.WriteLine("4. 낙제한 학생/점수");
 Console.WriteLine("5. 파일 찾기/삭제하기");
 Console.WriteLine("6. 인터페이스 1");
 Console.WriteLine("7. Reflection Demo");
+Console.WriteLine("8. Switch Demo");
+Console.WriteLine("9. TCP Listener");
+Console.WriteLine("10. TCP Client");
+Console.WriteLine("11. Read CSV");
 
 Console.WriteLine();
 Console.Write("실행메뉴 선택 : ");
@@ -149,13 +156,44 @@ switch (choice)
             new Action(Print).Invoke();
 
             // 정적메서드 호출
-            System.Reflection.MethodInfo? writeLine = typeof(Console).GetMethod("WriteLine", new Type[] {typeof(string)});
-            writeLine?.Invoke(null, new object[] {"Fine Thanks And You?"});
+            System.Reflection.MethodInfo? writeLine = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) });
+            writeLine?.Invoke(null, new object[] { "Fine Thanks And You?" });
+        }
+        break;
+    case 8:
+        {
+            var grade = new DemoSwitch();
+            grade.GetGrade();
+        }
+        break;
+
+    case 9:
+        {
+            // TcpServer server = new();
+            // server.Start();
+            SslTcpServer.RunServer("./localhost.pfx", "123456");
+        }
+        break;
+
+    case 10:
+        {
+            // TcpClients client = new();
+            // client.Connect(DateTime.Now.ToLongDateString());
+
+            SslTcpClient.RunClient("localhost", "123456", "./localhost.pfx");
+        }
+        break;
+
+    case 11: // 지식인 답변용
+        {
+            var readCsv = new ReadCsv();
+            readCsv.Run();
         }
         break;
     default: return;
 }
 
-void Print() {
+void Print()
+{
     Console.WriteLine("Hello Demo");
 }

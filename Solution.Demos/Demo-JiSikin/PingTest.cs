@@ -1,6 +1,5 @@
 
 using System.Net.NetworkInformation;
-using System.Text;
 
 namespace Helper;
 
