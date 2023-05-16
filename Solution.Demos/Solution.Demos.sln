@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-JiSikin", "Demo-JiSiki
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib_TcpLisener", "Lib_TcpListener\Lib_TcpListener.csproj", "{2822C6EE-172D-4A31-8828-C25ED6D1B7B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-Expression", "Demo-Expression\Demo-Expression.csproj", "{0F128785-56C2-4D58-8F9D-2B22E0F99722}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -120,5 +122,9 @@ Global
 		{2822C6EE-172D-4A31-8828-C25ED6D1B7B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2822C6EE-172D-4A31-8828-C25ED6D1B7B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2822C6EE-172D-4A31-8828-C25ED6D1B7B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F128785-56C2-4D58-8F9D-2B22E0F99722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F128785-56C2-4D58-8F9D-2B22E0F99722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F128785-56C2-4D58-8F9D-2B22E0F99722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F128785-56C2-4D58-8F9D-2B22E0F99722}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
