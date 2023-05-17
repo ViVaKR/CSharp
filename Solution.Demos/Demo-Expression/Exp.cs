@@ -38,5 +38,7 @@ public class Exp
 
         Console.WriteLine(expr.Compile().DynamicInvoke(12));
         Console.WriteLine(expr.Compile().DynamicInvoke(3));
+
+        
     }
 }
