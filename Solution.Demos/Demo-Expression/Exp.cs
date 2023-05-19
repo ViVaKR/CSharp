@@ -12,7 +12,7 @@ public class Exp
 
         Expression<Func<int, bool>> func =
             Expression.Lambda<Func<int, bool>>(exBinary, exParam); // body, parameters
-        
+
         Func<int, bool> deleA = func.Compile();
         Func<int, bool> deleB = func.Compile();
 
@@ -38,7 +38,24 @@ public class Exp
 
         Console.WriteLine(expr.Compile().DynamicInvoke(12));
         Console.WriteLine(expr.Compile().DynamicInvoke(3));
+    }
 
-        
+    public Expression AddEx<T>(T left, T right) where T : Expression => Expression.Add(left, right);
+    public Expression SubEx<T>(T left, T right) where T : Expression => Expression.Subtract(left, right);
+    public Expression MulEx<T>(T left, T right) where T : Expression => Expression.Multiply(left, right);
+    public Expression DivEx<T>(T left, T right) where T : Expression => Expression.Divide(left, right);
+
+    public void PrintEx<T, U, V>(T[] badies, U[] parameters, V a, V b)
+        where T : Expression
+        where U : ParameterExpression
+        where V : notnull
+    {
+        foreach (Expression body in badies)
+        {
+            var lambda = Expression.Lambda<Func<double, double, double>>(body, parameters);
+            var print = lambda.Compile().DynamicInvoke(a, b);
+            Console.WriteLine(print);
+        }
     }
 }
+

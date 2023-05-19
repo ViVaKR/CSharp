@@ -6,7 +6,7 @@ internal class Program
         var s = new PegStatus(Peg.Start);
         var e = new PegStatus(Peg.End);
         var t = new PegStatus(Peg.Temp);
-        const int n = 5;
+        const int n = 4;
         var dic = new Dictionary<Peg, PegStatus>
         {
             {Peg.Start, s},
