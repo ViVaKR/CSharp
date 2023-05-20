@@ -1,4 +1,3 @@
-
 using System.Net.NetworkInformation;
 
 namespace Helper;

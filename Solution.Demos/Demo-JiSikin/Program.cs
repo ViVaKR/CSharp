@@ -12,7 +12,8 @@ var menus = new List<string>{
     "Reflection", "Switch",
     "TcpServer", "TcpClient",
     "CSV", "CaesarCipher",
-    "Check Internet", "Get html"
+    "Check Internet", "Get html",
+    "야구게임", "게임 인벤토리"
 };
 
 int choice;
@@ -240,14 +241,27 @@ switch (choice)
             Console.WriteLine($"{Utility.GetWebPage("http://ip.text.or.kr")}");
         }
         break;
-    
+
     case 14: // Get Html 
-    {
-        Console.Write("웹 주소를 입력하세요 >> ");
-        string url = Console.ReadLine() ?? "http://ip.text.or.kr";
+        {
+            Console.Write("웹 주소를 입력하세요 >> ");
+            string url = Console.ReadLine() ?? "http://ip.text.or.kr";
 
-        Console.WriteLine($"{Utility.GetWebPage(url)}");
-    }
-    break;
+            Console.WriteLine($"{Utility.GetWebPage(url)}");
+        }
+        break;
 
+    case 15: // 야구게임
+        {
+            var game = new Games();
+            game.Game011();
+        }
+        break;
+
+    case 16: // 인벤토리
+        {
+            var game = new Games();
+            game.Game015();
+        }
+        break;
 }
