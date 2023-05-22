@@ -1,7 +1,11 @@
 # CSharp (C#)
 
-## Create Solution
+## Demo Solution Run : Solution.Demos
+```bash
+  $ make start
+```
 
+## Create Solution
 
 ```bash
 
