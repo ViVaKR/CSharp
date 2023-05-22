@@ -19,8 +19,6 @@ public class Recursion
             MergeSort(data, start, mid);
             MergeSort(data, mid + 1, end);
         }
-
-
     }
 
     public void Merge(int[] data, int start, int mid, int end)

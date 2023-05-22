@@ -15,6 +15,8 @@ try
         { 10, "Bits" },
         { 11, "Span<T>" },
         { 12, "Console WriteLine" },
+        { 13, "Draw Rect" },
+        { 14, "Bits" },
         { 1000, "Exit" },
     };
 
@@ -92,12 +94,14 @@ try
                         const uint a = 0b_0010_1111;
                         string result = Convert.ToString(a, toBase: 10);
                         WriteLine($"result = {result}");
-                        var span = new ReadOnlySpan<char>(new char[] {'a', 'b'});
+                        var span = new ReadOnlySpan<char>(new char[] { 'a', 'b' });
                         WriteLine($"span = {span}");
                     }
                     break;
-                case 11 : new ExSpan().Run(); break;
-                case 12 : new ExWriteLine().Run(); break;
+                case 11: new ExSpan().Run(); break;
+                case 12: new ExWriteLine().Run(); break;
+                case 13: new ExWriteLine().DrawRect(); break;
+                case 14: Demo_Bits.Program.Main(); break;
                 case 1000: return;
             }
 

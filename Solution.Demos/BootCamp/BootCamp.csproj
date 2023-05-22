@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Demo-Recursion\Recursion.csproj" />
+    <ProjectReference Include="..\Demo-Bits\Demo-Bits.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

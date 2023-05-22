@@ -6,6 +6,7 @@
     <RootNamespace>Demo_Bits</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <NoWarn>CA1822</NoWarn>
   </PropertyGroup>
 
 </Project>
