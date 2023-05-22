@@ -1,6 +1,6 @@
 namespace Demo_Bits;
 
-public class BitConverter
+public class ExBitConverter
 {
     public bool GetBits(int num, int index)
     {

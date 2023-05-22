@@ -104,7 +104,7 @@ try
             Write("\n계속하시겠습니까? Yes(Y)/No(N) >> ");
             cki = ReadKey(true);
             WriteLine();
-            Thread.Sleep(1000);
+            Thread.Sleep(10);
         } while (cki.Key != ConsoleKey.N);
     }
 

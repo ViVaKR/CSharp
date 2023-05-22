@@ -18,30 +18,20 @@ public class ExSpan
         var length = GetContents(contents.ToCharArray());
         WriteLine($"Content length : {length}");
 
-        const string formatter = "{0,25}{1,30}";
-        const double aDoubl = 0.1111111111111111111;
-        // float aSingl = 0.1111111111111111111F;
-        // long aLong = 1111111111111111111;
-        // int anInt = 1111111111;
-        // short aShort = 11111;
-        // char aChar = '*';
-        // bool aBool = true;
-        WriteLine(formatter, aDoubl, BitConverter.ToString(BitConverter.GetBytes(aDoubl)));
-        //       0.1111111111111111       1C-C7-71-1C-C7-71-BC-3F
-        // 1C-C7-71-1C-C7-71-BC-3F
+        const string formatter = "{0,30}";
+        const double dbl = 0.111_1111_1111_1111_1111;
+        WriteLine(formatter, BitConverter.ToString(BitConverter.GetBytes(dbl)));
+        WriteLine();
 
-        // string.Format("[{0, 10}]", "Foo"); [∙∙∙∙∙∙∙Foo]
-        WriteLine("[{0, 10}]", "Foo");
-        // string.Format("[{0, 5}]", "Foo"); [∙∙Foo]
-        // String.Format("[{0, -5}]", "Foo"); [Foo∙∙]
-
-        // String.Format("[{0, -10}]", "Foo"); [Foo∙∙∙∙∙∙∙]
+        const string foo = "Foo";
+        WriteLine($"[{foo, 10}]");  // [∙∙∙∙∙∙∙Foo]
+        WriteLine($"[{foo, 5}]");   // [∙∙Foo]
+        WriteLine($"[{foo, -5}]");  // [Foo∙∙]
+        WriteLine($"[{foo, -10}]"); // [Foo∙∙∙∙∙∙∙]
 
         const double tip = 52.23;
         WriteLine($"Bill:{tip,8}");
         WriteLine($"Bill:{tip}");
-
-
     }
 
     private int GetContents(ReadOnlySpan<char> span)
