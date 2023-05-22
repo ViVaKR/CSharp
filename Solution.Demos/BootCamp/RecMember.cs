@@ -1,3 +1,5 @@
+
+namespace BootCamp;
 /// <summary>
 /// Immutable 불변속성
 /// init : 처음 객체 초기화시만 속성 변경가능 키워드

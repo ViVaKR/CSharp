@@ -1,64 +1,22 @@
-﻿var rec = new Recursion();
+﻿using Demo_Recursion;
 
-// 2진수로 변환
-string? b = rec?.DecimalToBinary(253, string.Empty);
-Console.WriteLine(b);
+var rec = new Recursion();
+Console.WriteLine("선택 >> ");
+int choice = Convert.ToInt32(Console.ReadLine());
 
-// Sum of Natural Numbers, 자연수의 합
-Console.WriteLine(rec?.SumOfNaturalNumbers(10));
-
-// Divide & Conquer, 큰 문제를 작은 문제로 나눔
-
-
-// Binary Search (이진검색)
-// 이진검색의 목적 : 배열에서 값을 찾고자 하는 값을 찾는 것
 var a = new int[] { -1, 0, 1, 2, 3, 4, 7, 9, 10, 20 };
-
-int? result = rec?.BinarySearch(a, 0, 10, 7);
-Console.WriteLine(result);
-
-/// <summary>
-/// 재귀함수를 통한 2 진수변화
-/// </summary>\
-public class Recursion
+switch (choice)
 {
-    public int BinarySearch(int[] A, int left, int right, int x)
-    {
-        if(left > right) return -1;
-
-        int mid = (left + right) / 2;
-        
-        if (x == A[mid]) return mid;
-        
-        if (x < A[mid]) return BinarySearch(A, left, mid - 1, x);
-
-        return BinarySearch(A, mid + 1, right, x);
-    }
-
-    /// <summary>
-    /// 자연수의 합계 구하기
-    /// </summary>
-    /// <param name="inputNumber"></param>
-    /// <returns></returns>
-    public int SumOfNaturalNumbers(int inputNumber)
-    {
-        if (inputNumber <= 1) return inputNumber;
-        return SumOfNaturalNumbers(inputNumber - 1) + inputNumber;
-    }
-
-    /// <summary>
-    /// 2진수 변화
-    /// </summary>
-    /// <param name="number"></param>
-    /// <param name="result"></param>
-    /// <returns></returns>
-    public string? DecimalToBinary(int number, string result)
-    {
-        if (number == 0) return result;
-
-        result = (number % 2) + result;
-        return DecimalToBinary(number / 2, result);
-    }
+    case 1: Console.WriteLine(rec.RecursionA(1)); return;
+    case 2: Console.WriteLine(rec.DecimalToBinary(253, string.Empty)); return;
+    case 3: Console.WriteLine(rec.SumOfNaturalNumbers(10)); return;
+    case 4: Console.WriteLine(rec.BinarySearch(a, 0, 10, 7)); return;
 }
-
-
+// ATM Analogy (비유)
+// ATM 기계 앞에서 당신의 앞에 얼마나 많은 사람들이 서있는지?
+// How many people are in front of me?
+// 바로 앞의 사람에게 당신은 몇번째 입니까? 하고 물음
+// 제일 앞에 있는 사람까지 반복하여 질문을 함
+// 제일 앞에 있는 사람이 정지 조건 즉 1을 반환하고 
+// 다시 역순으로 2, 3, 4 .. 되돌아 오게 하는 알고리즘
+// 즉 정지 조건이 현재 ATM 에서 돈을 인출하는 사람이 됨

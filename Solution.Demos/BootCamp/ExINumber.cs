@@ -1,7 +1,9 @@
 using System.Numerics;
 
+namespace BootCamp;
 public class Calculate<T> where T : INumber<T>
 {
+
     public T Add(T a, T b) => a + b;
     public T Sub(T a, T b) => a + b;
     public T Div(T a, T b) => a + b;
@@ -30,5 +32,4 @@ public class Calculate<T> where T : INumber<T>
             Console.WriteLine($"{Convert.ToInt32(t)}");
         }
     }
-
 }

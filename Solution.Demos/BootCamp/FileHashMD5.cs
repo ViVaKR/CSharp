@@ -1,5 +1,6 @@
 using System.Security.Cryptography;
 
+namespace BootCamp;
 public class FileHashMD5
 {
     public void Run()

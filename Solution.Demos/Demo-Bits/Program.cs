@@ -1,10 +1,12 @@
 ﻿namespace Demo_Bits;
-class Program
+
+public class Program
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
         BitConverter bit = new BitConverter();
         bit.GetBits(15, 3);
+        
 
         for (int i = 31; i >= 0; i--)
         {

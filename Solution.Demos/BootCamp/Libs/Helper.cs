@@ -68,4 +68,5 @@ public static class Helper
         // 즉, 두개중 0 이 아닌 최대 숫자(최대공약수)가 검출됨
         return left | right;
     }
+
 }
