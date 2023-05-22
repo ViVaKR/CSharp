@@ -17,6 +17,7 @@ try
         { 12, "Console WriteLine" },
         { 13, "Draw Rect" },
         { 14, "Bits" },
+        { 15, "Linked Lists"},
         { 1000, "Exit" },
     };
 
@@ -85,7 +86,10 @@ try
                         // 오른쪽
                         // 왼쪽과 같은 방식으로 진행하며 
                         // 병합하고 정렬
-                        var b = new int[] { 4, 1, 3, 3, 0, -1, 7, 10, 9, 20 };
+                        var data = new int[] { -5, 20, 4, 1, 3, 0, -2, 7, 10, 9 };
+                        rec.MergeSort(data, 0, data.Length - 1);
+                        WriteLine("Stop");
+                        WriteLine($"data = {string.Join(", ", data)}");
 
                     }
                     break;
@@ -102,6 +106,7 @@ try
                 case 12: new ExWriteLine().Run(); break;
                 case 13: new ExWriteLine().DrawRect(); break;
                 case 14: Demo_Bits.Program.Main(); break;
+                case 15: new ExLinkedList().MakeNode();break;
                 case 1000: return;
             }
 

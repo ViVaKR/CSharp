@@ -18,6 +18,7 @@ public class Recursion
             int mid = (start + end) / 2;
             MergeSort(data, start, mid);
             MergeSort(data, mid + 1, end);
+            Merge(data, start, mid, end);
         }
     }
 
@@ -26,7 +27,39 @@ public class Recursion
         // build temp array to avoid modifying the original contents
         int[] temp = new int[end - start + 1];
         int i = start, j = mid + 1, k = 0;
-        
+
+        // While both sub-array have values,
+        // then try and merge then in sorted order
+        while (i <= mid && j <= end)
+        {
+            if (data[i] <= data[j])
+            {
+                temp[k++] = data[i++];
+            }
+            else
+            {
+                temp[k++] = data[j++];
+            }
+        }
+
+        // Add the rest of the values from the left sub-array into the result
+        while (i <= mid)
+        {
+            temp[k] = data[i];
+            k++; i++;
+        }
+
+        // Add the rest of the values from the sub-array into the result
+        while (j <= end)
+        {
+            temp[k] = data[j];
+            k++; j++;
+        }
+
+        for (i = start; i <= end; i++)
+        {
+            data[i] = temp[i - start];
+        }
     }
 
 

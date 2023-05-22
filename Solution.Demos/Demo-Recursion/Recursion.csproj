@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Demo_Recursion</RootNamespace>
     <Nullable>enable</Nullable>
+    <NoWarn>CA1822</NoWarn>
   </PropertyGroup>
 
 </Project>
