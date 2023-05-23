@@ -3,7 +3,6 @@ using System.Numerics;
 namespace BootCamp;
 public class Calculate<T> where T : INumber<T>
 {
-
     public T Add(T a, T b) => a + b;
     public T Sub(T a, T b) => a + b;
     public T Div(T a, T b) => a + b;
@@ -13,12 +12,12 @@ public class Calculate<T> where T : INumber<T>
     {
         int i = -1;
         string s = Convert.ToString(i, 2);
-        Console.Write($"{s} ");
-        Console.WriteLine($"{i}");
+        Write($"{s} ");
+        WriteLine($"{i}");
         for (int k = 1; k < s.Length; k++)
         {
             int t = i << k;
-            Console.WriteLine($"{Convert.ToString(t, 2)} {Convert.ToInt32(t)}");
+            WriteLine($"{Convert.ToString(t, 2)} {Convert.ToInt32(t)}");
         }
 
         i = 2147483647;
