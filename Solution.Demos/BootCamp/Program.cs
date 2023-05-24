@@ -18,6 +18,7 @@ try
         { 13, "Draw Rect" },
         { 14, "Bits" },
         { 15, "Linked Lists"},
+        { 16, "Ref T"},
         { 1000, "Exit" },
     };
 
@@ -106,7 +107,8 @@ try
                 case 12: new ExWriteLine().Run(); break;
                 case 13: new ExWriteLine().DrawRect(); break;
                 case 14: Demo_Bits.Program.Main(); break;
-                case 15: new ExLinkedList().MakeNode();break;
+                case 15: new ExLinkedList().MakeNode(); break;
+                case 16: new ExSpan().GenericTest(); break;
                 case 1000: return;
             }
 

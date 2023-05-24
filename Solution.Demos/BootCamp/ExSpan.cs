@@ -12,6 +12,30 @@ public class ExSpan
         Get();
     }
 
+    public void GenericTest()
+    {
+        int a = 0;
+        Func(ref a);
+        Test1(23);
+        WriteLine($"{a}");
+    }
+
+    public void Test1<T>(T data)
+    {
+        int number = data as dynamic;
+        WriteLine(number);
+    }
+
+    public void Func<T>(ref T data) where T : struct
+    {
+        data = (dynamic)4;
+    }
+
+    public void Func(ref object data)
+    {
+        data = 4;
+    }
+
     private void Get()
     {
         const string contents = "Content-Length: 132";
@@ -24,10 +48,10 @@ public class ExSpan
         WriteLine();
 
         const string foo = "Foo";
-        WriteLine($"[{foo, 10}]");  // [∙∙∙∙∙∙∙Foo]
-        WriteLine($"[{foo, 5}]");   // [∙∙Foo]
-        WriteLine($"[{foo, -5}]");  // [Foo∙∙]
-        WriteLine($"[{foo, -10}]"); // [Foo∙∙∙∙∙∙∙]
+        WriteLine($"[{foo,10}]");  // [∙∙∙∙∙∙∙Foo]
+        WriteLine($"[{foo,5}]");   // [∙∙Foo]
+        WriteLine($"[{foo,-5}]");  // [Foo∙∙]
+        WriteLine($"[{foo,-10}]"); // [Foo∙∙∙∙∙∙∙]
 
         const double tip = 52.23;
         WriteLine($"Bill:{tip,8}");

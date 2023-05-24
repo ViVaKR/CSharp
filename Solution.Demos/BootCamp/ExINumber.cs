@@ -8,6 +8,7 @@ public class Calculate<T> where T : INumber<T>
     public T Div(T a, T b) => a + b;
     public T Mul(T a, T b) => a + b;
 
+    
     public void Shift()
     {
         int i = -1;
