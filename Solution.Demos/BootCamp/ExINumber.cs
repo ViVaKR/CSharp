@@ -8,7 +8,6 @@ public class Calculate<T> where T : INumber<T>
     public T Div(T a, T b) => a + b;
     public T Mul(T a, T b) => a + b;
 
-    
     public void Shift()
     {
         int i = -1;
@@ -23,13 +22,13 @@ public class Calculate<T> where T : INumber<T>
 
         i = 2147483647;
         s = Convert.ToString(i, 2);
-        Console.Write($"{s.PadLeft(32, '0')} ");
-        Console.WriteLine($"{i}");
+        Write($"{s.PadLeft(32, '0')} ");
+        WriteLine($"{i}");
         for (int k = 1; k <= s.Length; k++)
         {
             int t = i >> k;
-            Console.Write($"{Convert.ToString(t, 2).PadLeft(32, '0')} ");
-            Console.WriteLine($"{Convert.ToInt32(t)}");
+            Write($"{Convert.ToString(t, 2).PadLeft(32, '0')} ");
+            WriteLine($"{Convert.ToInt32(t)}");
         }
     }
 }

@@ -62,5 +62,10 @@ nullable 값 형식은 제네릭 구조체 형식 `System.Nullable<T>` 의 인�
 - 임의 메모리에 연속된 영역을 할당
 - 배열의 요소 또는 배열의 일부를 가져오는데 사용할 수 있음
 
+## Big-O Notation[^1]
+
+-
 
 ## 윤리적 해킹 (Ethical Hacking)
+
+[^1]:표기법

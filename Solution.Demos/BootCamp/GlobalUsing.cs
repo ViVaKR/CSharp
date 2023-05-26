@@ -10,3 +10,5 @@ global using Demo_Recursion;
 global using Env = System.Environment;
 global using static System.Console;
 global using System.Runtime.InteropServices;
+global using System.Reflection;
+global using BootCamp.Attrs;

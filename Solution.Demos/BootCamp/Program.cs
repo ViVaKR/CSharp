@@ -1,24 +1,13 @@
-﻿
-try
+﻿try
 {
     string[] agus = Env.GetCommandLineArgs();
     var menu = new Dictionary<int, string>{
-        { 1, "Record" },
-        { 2, "U8" },
-        { 3, "CheckMemberShip" },
-        { 4, "Calculate" },
-        { 5, "Shift" },
-        { 6, "FileHashMD5" },
-        { 7, "Prime Number" },
-        { 8, "Greatest Common Denominator" },
-        { 9, "Recursions" },
-        { 10, "Bits" },
-        { 11, "Span<T>" },
-        { 12, "Console WriteLine" },
-        { 13, "Draw Rect" },
-        { 14, "Bits" },
-        { 15, "Linked Lists"},
-        { 16, "Ref T"},
+        { 1, "Record" }, { 2, "U8" }, { 3, "CheckMemberShip" },
+        { 4, "Calculate" }, { 5, "Shift" }, { 6, "FileHashMD5" },
+        { 7, "Prime Number" }, { 8, "Greatest Common Denominator" }, { 9, "Recursions" },
+        { 10, "Bits" }, { 11, "Span<T>" }, { 12, "Console WriteLine" },
+        { 13, "Draw Rect" }, { 14, "Bits" }, { 15, "Linked Lists"},
+        { 16, "Ref T"}, { 17, "Attribute Demo"}, {18, "Trace Logging"}, { 19, "Inheritance Demo"},
         { 1000, "Exit" },
     };
 
@@ -109,6 +98,9 @@ try
                 case 14: Demo_Bits.Program.Main(); break;
                 case 15: new ExLinkedList().MakeNode(); break;
                 case 16: new ExSpan().GenericTest(); break;
+                case 17: new TestTrigger().Run(); break;
+                case 18: new TraceLogging().Run(); break;
+                case 19: new DemoInheritance().Run(); break; // 지식인 답변
                 case 1000: return;
             }
 
