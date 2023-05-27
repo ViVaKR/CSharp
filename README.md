@@ -33,6 +33,12 @@
 
     # Add Reference
     dotnet add Demo-JiSikin.csproj reference ../Libs/Libs.csproj
+
+    # Add Package examples 
+    dotnet add Solution.Demos/BootCamp/BootCamp.csproj package Microsoft.Extensions.Hosting
+    dotnet add Solution.Demos/BootCamp/BootCamp.csproj package Microsoft.Extensions.Configuration.Binder
+    dotnet add Solution.Demos/BootCamp/BootCamp.csproj package Microsoft.Extensions.Configuration.Json
+    dotnet add Solution.Demos/BootCamp/BootCamp.csproj package Microsoft.Extensions.Configuration.EnvironmentVariables
 ```
 
 ## VSCode Intellisense

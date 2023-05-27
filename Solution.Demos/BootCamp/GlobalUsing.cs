@@ -12,3 +12,6 @@ global using static System.Console;
 global using System.Runtime.InteropServices;
 global using System.Reflection;
 global using BootCamp.Attrs;
+global using Microsoft.Extensions.Hosting;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;

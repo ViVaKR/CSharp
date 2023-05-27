@@ -1,4 +1,51 @@
-﻿try
+﻿var builder = Host.CreateDefaultBuilder(args);
+builder.ConfigureServices(services => services.AddHostedService<Worker>().AddScoped<IMessageWriter, MessageWriter>());
+
+using var host = builder.Build();
+
+host.Run();
+
+// using IHost host = Host.CreateDefaultBuilder(args).Build();
+
+// Build a config object, using env vars and JSON providers.
+// IConfiguration config = new ConfigurationBuilder()
+//     .AddJsonFile("appsettings.json")
+//     .AddEnvironmentVariables()
+//     .Build();
+
+// IConfiguration config = host.Services.GetRequiredService<IConfiguration>();
+
+// Get values from the config given therir key and their target type.
+// Settings? setting = config.GetRequiredSection("Settings").Get<Settings>();
+
+// int KeyOne = config.GetValue<int>("KeyOne");
+// bool KeyTwo = config.GetValue<bool>("KeyTwo");
+// string? KeyThree = config.GetValue<string>("KeyThree:Message");
+
+// string? ipOne = config["IPAddressRange:0"];
+// string? ipTwo = config["IPAddressRange:1"];
+// string? ipThree = config["IPAddressRange:2"];
+// string? versionOne = config["SupportedVersions:v1"];
+// string? versionThree = config["SupportedVersions:v3"];
+
+// Write the values Settings Examples
+// WriteLine($"KeyOne = {setting?.KeyOne}");
+// WriteLine($"KeyTwo = {setting?.KeyTwo}");
+// WriteLine($"KeyThree: Message = {setting?.KeyThree?.Message}");
+
+// WriteLine($"KeyOne = {KeyOne}");
+// WriteLine($"KeyTwo = {KeyTwo}");
+// WriteLine($"KeyThree = {KeyThree}");
+// WriteLine($"IPAddressRange:0 = {ipOne}");
+// WriteLine($"IPAddressRange:1 = {ipTwo}");
+// WriteLine($"IPAddressRange:2 = {ipThree}");
+// WriteLine($"SupportedVersions:v1 = {versionOne}");
+// WriteLine($"SupportedVersions:v3 = {versionThree}");
+
+// await host.RunAsync();
+
+/*  
+try
 {
     string[] agus = Env.GetCommandLineArgs();
     var menu = new Dictionary<int, string>{
@@ -196,5 +243,7 @@
 catch (Exception ex)
 {
     var line = ex.GetErrorLineNumber();
-    WriteLine($"오류발생 ( {line} )");
+    WriteLine($"오류발생 ( {line} )\n{ex.Message}");
 }
+
+*/
