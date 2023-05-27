@@ -4,30 +4,32 @@ public class TraceLogging
 {
     public void Run()
     {
-        WriteLine($"{DateTime.Now}");
+        // CreateTextWriterTraceListener();
+        CreateConsoleTraceListener();
+    }
 
-        // 콘솔에 로깅
+    public void CreateConsoleTraceListener()
+    {
         Trace.Listeners.Clear();
-        Trace.Listeners.Add(new ConsoleTraceListener());
-        Trace.WriteLine($"{DateTime.Now} : ConsoleTraceListener");
-
-        // Trace 메서드 사용
-        Trace.TraceInformation("My Info");
-        Trace.TraceWarning("My Warning");
-        Trace.TraceError("My Error");
-
-        // 파일에 로깅
-        Trace.Listeners.Clear();
-        Trace.Listeners.Add(new TextWriterTraceListener("logs.txt"));
+        Trace.Listeners.Add(new ConsoleTraceListener(true));
+        Trace.TraceInformation($"Console Trace Message {DateTime.Now}");
         Trace.AutoFlush = true;
-        Trace.WriteLine($"{DateTime.Now} : File Log");
+        Trace.Flush();
+        for (int i = 0; i < 5; i++)
+        {
+            Trace.WriteLine($"{i + 1: 000} : Trace ( {MethodBase.GetCurrentMethod()?.Name} )");
+            Thread.Sleep(1000);
+        }
+        Trace.TraceWarning("Trace Warning");
+        Trace.TraceError("Trace Error");
+    }
 
+    public void CreateTextWriterTraceListener()
+    {
         // 콘솔과 파일에 동시 로깅
         Trace.Listeners.Clear();
-        Trace.Listeners.Add(new ConsoleTraceListener());
-        Trace.Listeners.Add(new TextWriterTraceListener("trace.txt"));
-        Trace.AutoFlush = true;
-        Trace.WriteLine($"{DateTime.Now} {MethodBase.GetCurrentMethod()?.Name}");
-
+        Trace.Listeners.Add(new TextWriterTraceListener("TextWriterOutput.log", "vivListener"));
+        Trace.TraceInformation($"{DateTime.Now} : Message.");
+        Trace.Flush();
     }
 }

@@ -6,3 +6,5 @@ BootCamp Error: 0 : My Error
 2023. 5. 26. 오전 10:08:50 : File Log
 2023. 5. 26. 오전 10:09:53 : File Log
 2023. 5. 26. 오전 10:15:24 : File Log
+2023. 5. 26. 오후 3:55:05 : File Log
+2023. 5. 26. 오후 3:57:04 : File Log
