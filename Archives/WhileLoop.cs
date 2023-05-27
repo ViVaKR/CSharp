@@ -1,5 +1,3 @@
-
-
 public class WhileLoop
 {
     public void Start()
