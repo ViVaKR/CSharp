@@ -1,53 +1,33 @@
-﻿var builder = Host.CreateDefaultBuilder(args);
-builder.ConfigureServices(services => services.AddHostedService<Worker>().AddScoped<IMessageWriter, MessageWriter>());
-
-using var host = builder.Build();
-
-host.Run();
-
-// using IHost host = Host.CreateDefaultBuilder(args).Build();
+﻿using BootCamp.Libs;
+using Demo_Recursion;
 
 // Build a config object, using env vars and JSON providers.
-// IConfiguration config = new ConfigurationBuilder()
-//     .AddJsonFile("appsettings.json")
-//     .AddEnvironmentVariables()
-//     .Build();
+IConfiguration config = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json")
+    .AddEnvironmentVariables()
+    .Build();
 
-// IConfiguration config = host.Services.GetRequiredService<IConfiguration>();
+int KeyOne = config.GetValue<int>("KeyOne");
+bool KeyTwo = config.GetValue<bool>("KeyTwo");
+string? KeyThree = config.GetValue<string>("KeyThree:Message");
+string? ipOne = config["IPAddressRange:0"];
+string? ipTwo = config["IPAddressRange:1"];
+string? ipThree = config["IPAddressRange:2"];
+string? versionOne = config["SupportedVersions:v1"];
+string? versionThree = config["SupportedVersions:v3"];
 
-// Get values from the config given therir key and their target type.
-// Settings? setting = config.GetRequiredSection("Settings").Get<Settings>();
+WriteLine($"KeyOne = {KeyOne}");
+WriteLine($"KeyTwo = {KeyTwo}");
+WriteLine($"KeyThree = {KeyThree}");
+WriteLine($"IPAddressRange:0 = {ipOne}");
+WriteLine($"IPAddressRange:1 = {ipTwo}");
+WriteLine($"IPAddressRange:2 = {ipThree}");
+WriteLine($"SupportedVersions:v1 = {versionOne}");
+WriteLine($"SupportedVersions:v3 = {versionThree}");
 
-// int KeyOne = config.GetValue<int>("KeyOne");
-// bool KeyTwo = config.GetValue<bool>("KeyTwo");
-// string? KeyThree = config.GetValue<string>("KeyThree:Message");
-
-// string? ipOne = config["IPAddressRange:0"];
-// string? ipTwo = config["IPAddressRange:1"];
-// string? ipThree = config["IPAddressRange:2"];
-// string? versionOne = config["SupportedVersions:v1"];
-// string? versionThree = config["SupportedVersions:v3"];
-
-// Write the values Settings Examples
-// WriteLine($"KeyOne = {setting?.KeyOne}");
-// WriteLine($"KeyTwo = {setting?.KeyTwo}");
-// WriteLine($"KeyThree: Message = {setting?.KeyThree?.Message}");
-
-// WriteLine($"KeyOne = {KeyOne}");
-// WriteLine($"KeyTwo = {KeyTwo}");
-// WriteLine($"KeyThree = {KeyThree}");
-// WriteLine($"IPAddressRange:0 = {ipOne}");
-// WriteLine($"IPAddressRange:1 = {ipTwo}");
-// WriteLine($"IPAddressRange:2 = {ipThree}");
-// WriteLine($"SupportedVersions:v1 = {versionOne}");
-// WriteLine($"SupportedVersions:v3 = {versionThree}");
-
-// await host.RunAsync();
-
-/*  
 try
 {
-    string[] agus = Env.GetCommandLineArgs();
+    string[] agus = Environment.GetCommandLineArgs();
     var menu = new Dictionary<int, string>{
         { 1, "Record" }, { 2, "U8" }, { 3, "CheckMemberShip" },
         { 4, "Calculate" }, { 5, "Shift" }, { 6, "FileHashMD5" },
@@ -64,7 +44,7 @@ try
         ConsoleKeyInfo cki = default;
         do
         {
-            Clear();
+            // Clear();
             WriteLine();
             WriteLine("\n***** 실행가능한 프로그램 ******\n");
 
@@ -135,7 +115,7 @@ try
                         const uint a = 0b_0010_1111;
                         string result = Convert.ToString(a, toBase: 10);
                         WriteLine($"result = {result}");
-                        var span = new ReadOnlySpan<char>(new char[] { 'a', 'b' });
+                        ReadOnlySpan<char> span = new ReadOnlySpan<char>(new char[] { 'a', 'b' });
                         WriteLine($"span = {span}");
                     }
                     break;
@@ -245,5 +225,3 @@ catch (Exception ex)
     var line = ex.GetErrorLineNumber();
     WriteLine($"오류발생 ( {line} )\n{ex.Message}");
 }
-
-*/

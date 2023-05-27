@@ -4,7 +4,10 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>ConsoleAsync</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Nullable>enable</Nullable>
+    <NoWarn>CA1822, CS0414, CS0162</NoWarn>
   </PropertyGroup>
 
 </Project>
