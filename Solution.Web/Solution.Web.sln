@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFSqlite", "EFSqlite\EFSqli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection", "DependencyInjection\DependencyInjection.csproj", "{0A8888DE-161F-4E97-BDBE-FDDFA2C0CBC0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api.vivakr.com", "api.vivakr.com\api.vivakr.com.csproj", "{B43339C1-B418-447F-A295-8E315099ADA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{0A8888DE-161F-4E97-BDBE-FDDFA2C0CBC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A8888DE-161F-4E97-BDBE-FDDFA2C0CBC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A8888DE-161F-4E97-BDBE-FDDFA2C0CBC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B43339C1-B418-447F-A295-8E315099ADA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B43339C1-B418-447F-A295-8E315099ADA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B43339C1-B418-447F-A295-8E315099ADA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B43339C1-B418-447F-A295-8E315099ADA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

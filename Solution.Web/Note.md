@@ -58,10 +58,6 @@ public class TodoItem
 
 - Add a TodoContext.cs file to the Medels folder.
 
-```csharp
-
-```
-
 ## 7. Scaffold a Controller
 
 ```bash
