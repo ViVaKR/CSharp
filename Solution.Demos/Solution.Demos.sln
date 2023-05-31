@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootCamp", "BootCamp\BootCamp.csproj", "{9D8BD726-524C-4F4B-A003-1B8DAB7638BA}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-RegEx", "Demo-RegEx\Demo-RegEx.csproj", "{2693EB4A-B956-4E96-B0A6-6F34C123ADFD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-ToBase64", "Demo-ToBase64\Demo-ToBase64.csproj", "{752E024C-25D2-484E-92FD-E38D9F9A5FF5}"
@@ -42,8 +44,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-Expression", "Demo-Expression\Demo-Expression.csproj", "{0F128785-56C2-4D58-8F9D-2B22E0F99722}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-Container", "Demo-Container\Demo-Container.csproj", "{BA63CF31-909C-4FEA-9B02-C2B5C8F7ACBF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootCamp", "BootCamp\BootCamp.csproj", "{9D8BD726-524C-4F4B-A003-1B8DAB7638BA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intellectual", "Intellectual\Intellectual.csproj", "{9C65A865-ACD5-4189-B60A-35968CF4F11F}"
 EndProject
