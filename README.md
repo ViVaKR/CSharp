@@ -41,6 +41,37 @@
     dotnet add Solution.Demos/BootCamp/BootCamp.csproj package Microsoft.Extensions.Configuration.EnvironmentVariables
 ```
 
+## launch.json
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/bin/Debug/net7.0/<project-name>.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "logging": {
+                "moduleLoad": false,
+                "exceptions": true,
+                "browserStdOut": true
+            },
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        }
+    ]
+}
+
+```
+
 ## VSCode Intellisense
 
 1. VSCode Editor : `Ctrl + Shift + p`
@@ -60,16 +91,17 @@
 ## Create `class library`
 
 ```bash
-dotnet new sln
-dotnet new classlib -o StringLibrary
-dotnet sln add StringLibrary
+    dotnet new sln
+    dotnet new classlib -o StringLibrary
+    dotnet sln add StringLibrary
 
-# editing StringLibrary class...
-dotnet build
+    # editing StringLibrary class...
+    dotnet build
 
-# create new console app project to the solution
-# $ dotnet new console -o ShowCase 
-dotnet add ShowCase reference StringLibrary
+    # create new console app project to the solution
+    # $ dotnet new console -o ShowCase 
+    dotnet add ShowCase reference StringLibrary
+```
 
 # ShowCase.csproj 
 ### '
