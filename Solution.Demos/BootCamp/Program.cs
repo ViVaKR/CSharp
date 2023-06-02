@@ -1,7 +1,7 @@
 ﻿using BootCamp.Libs;
 using Demo_Recursion;
 
-// Build a config object, using env vars and JSON providers.
+//- Build a config object, using env vars and JSON providers.
 IConfiguration config = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
     .AddEnvironmentVariables()
@@ -35,6 +35,7 @@ try
         { 10, "Bits" }, { 11, "Span<T>" }, { 12, "Console WriteLine" },
         { 13, "Draw Rect" }, { 14, "Bits" }, { 15, "Linked Lists"},
         { 16, "Ref T"}, { 17, "Attribute Demo"}, {18, "Trace Logging"}, { 19, "Inheritance Demo"},
+        { 20, "IntPtr Demo "}, { 21, "Marshal Demo"},
         { 1000, "Exit" },
     };
 
@@ -128,6 +129,8 @@ try
                 case 17: new TestTrigger().Run(); break;
                 case 18: new TraceLogging().Run(); break;
                 case 19: new DemoInheritance().Run(); break; // 지식인 답변
+                case 20: new ExIntPtr().PointerTest(); break;
+                case 21: new ExMarshal().Run(); break;
                 case 1000: return;
             }
 
