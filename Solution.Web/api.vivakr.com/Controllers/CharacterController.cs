@@ -1,51 +1,32 @@
-
-using Microsoft.AspNetCore.Mvc;
-using api.vivakr.com.Models;
 namespace api.vivakr.com.Controllers;
 
-/// <summary>
-///* ~/api/character
-/// </summary>
 [ApiController]
 [Route("[controller]")]
 public class CharacterController : ControllerBase
 {
-    private static readonly List<Character> character = new()
+    private readonly ICharacterService _service;
+
+    public CharacterController(ICharacterService service)
     {
-        new Character(),
-        new Character {
-            Id = 1,
-            Name = "BravoBJ",
-            HitPoints = 100,
-            Strength = 10,
-            Defense = 10,
-            Intelligence =10,
-            Class = RPGClass.Mage
-        },
-        new Character {
-            Id = 2,
-            Name = "HelloWorld"
-        }
-    };
+        _service = service;
+    }
 
     [HttpGet("GetAll")]
-    // [Route("GetAll")]
-    public ActionResult<List<Character>> Get()
+    //+ [Route("GetAll")]
+    public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> Get()
     {
-        return Ok(character);
-        //! Ok :  200
-        //! BadRequest : 400
-        //! NotFound : 404
+        return Ok(await _service.GetAllCharacters());
     }
 
     [HttpGet("{id}")]
-    public ActionResult GetSingle(int id)
+    public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> GetSingle(int id)
     {
-        if(!character.Any(x=>x.Id == id)) return BadRequest();
-        return Ok(character.Find(x=> x.Id == id));
+        return Ok(await _service.GetCharacterById(id));
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> AddCharacter(AddCharacterDto data)
+    {
+        return Ok(await _service.AddCharacter(data));
     }
 }
-
-/*
-    readonly : 생성자를 통하여서 반복적으로 값을 재 할당할 수 있음
-*/

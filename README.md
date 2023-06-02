@@ -41,7 +41,8 @@
     dotnet add Solution.Demos/BootCamp/BootCamp.csproj package Microsoft.Extensions.Configuration.EnvironmentVariables
 ```
 
-## launch.json
+## `launch.json` example
+
 ```json
 {
     "version": "0.2.0",
@@ -134,3 +135,4 @@
 
 ---
 
+> C# 개발자는 변수가 스택 또는 힘에 있는 위치에 거의 신경을 쓸 필요가 없음
