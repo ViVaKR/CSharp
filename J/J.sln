@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "J", "J\J.csproj", "{130284F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "J_Hooking", "J_Hooking\J_Hooking.csproj", "{21BFF10B-3FAA-4983-91C9-3703722D4FDE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "J_ListViewEx", "J_ListViewEx\J_ListViewEx.csproj", "{43545B78-6EEB-47EF-AEB0-0FF566325FBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{21BFF10B-3FAA-4983-91C9-3703722D4FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21BFF10B-3FAA-4983-91C9-3703722D4FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21BFF10B-3FAA-4983-91C9-3703722D4FDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43545B78-6EEB-47EF-AEB0-0FF566325FBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43545B78-6EEB-47EF-AEB0-0FF566325FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43545B78-6EEB-47EF-AEB0-0FF566325FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43545B78-6EEB-47EF-AEB0-0FF566325FBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
