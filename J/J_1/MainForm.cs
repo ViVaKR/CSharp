@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace J_1
@@ -10,13 +13,15 @@ namespace J_1
         {
             InitializeComponent();
 
-            textBox1.Text = $"안녕하세요 반갑습니다.{Environment.NewLine}Hello World{Environment.NewLine}Fine Thanks And You!";
+            textBox1.Text = string.Empty;
 
             Load += MainForm_Load;
 
             Shown += (s, e) =>
             {
-                textBox1.Text = $"{Width} - {Height}\r\n$\"안녕하세요 반갑습니다.{{Environment.NewLine}}Hello World{{Environment.NewLine}}Fine Thanks And You!\";";
+                string result = GetProcess("notepad");
+                if (string.IsNullOrEmpty(result)) return;
+                textBox1.Text = result;
             };
         }
 
@@ -31,9 +36,56 @@ namespace J_1
             SizeF scale = new SizeF(w / (w * ratio), h / (h * ratio));
 
             Scale(scale);
-
+            textBox1.Text = "Hello World";
             foreach (Control control in this.Controls)
                 control.Font = new Font(@"빙그레 따옴체", 15.5f, FontStyle.Regular);
+
+
+
+            //Process process = new Process();
+            //process.StartInfo.FileName = @"%windir%\notepad.exe";
+            //process.Start();
+            //string name = PerformanceCounterInstanceName(process);
+            //textBox1.Text += name;
+        }
+
+        public static string GetProcess(string procName)
+        {
+            Process[] processes = Process.GetProcesses();
+            if (!processes.Any(x => Path.GetFileNameWithoutExtension(x.ProcessName).Contains(procName))) return "-";
+            Process process = processes.FirstOrDefault(x => Path.GetFileNameWithoutExtension(x.ProcessName).Contains(procName));
+
+            Func<string, bool> matchesProcessId = new Func<string, bool>(instanceName =>
+            {
+                using (PerformanceCounter pc = new PerformanceCounter("Process", "ID Process", instanceName, true))
+                {
+                    if ((int)pc.RawValue == process.Id)
+                    {
+                        return true;
+                    }
+
+                }
+
+                return false;
+            });
+
+            string processName = Path.GetFileNameWithoutExtension(process.ProcessName);
+
+            PerformanceCounterCategory p = new PerformanceCounterCategory("Process");
+            InstanceDataCollectionCollection r = p.ReadCategory();
+
+            return new PerformanceCounterCategory("Process")
+               .GetInstanceNames()
+               .AsParallel()
+               .FirstOrDefault(instanceName => instanceName.StartsWith(processName)
+                                               && matchesProcessId(instanceName));
+        }
+
+        public void Demo()
+        {
+
         }
     }
+
+
 }
