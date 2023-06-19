@@ -69,7 +69,7 @@ namespace CustomerCare
              "Server=localhost,59273;" +
              "Database=ViV;" +
              "User ID=ViV;" +
-             "Password=B9037!m8947#;" +
+             "Password=비밀번호!블라블라;" +
              "Encrypt=Yes;" +
              "TrustServerCertificate=Yes;";
 
