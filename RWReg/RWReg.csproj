@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+
+		<TargetFramework>net7.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<PlatformName>windows</PlatformName>
+		<OutputType>Exe</OutputType>
+		<Nullable>enable</Nullable>
+
+	</PropertyGroup>
+
+	<ItemGroup>
+		<SupportedOSPlatform Include="Windows" />
+	</ItemGroup>
+
+</Project>
