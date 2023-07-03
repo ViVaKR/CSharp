@@ -5,6 +5,9 @@ using System.Runtime.InteropServices;
 
 namespace NetShareApp;
 
+/// <summary>
+/// 네트워크 공유폴더 연결 클래스
+/// </summary>
 public partial class NetworkConnect : IDisposable
 {
 	public event EventHandler<EventArgs>? Disposed;
@@ -28,11 +31,9 @@ public partial class NetworkConnect : IDisposable
 			LocalName = $"{_localName}:"
 		};
 
-		string userName = string.IsNullOrEmpty(_credentials.Domain)
-			? _credentials.UserName
-			: $"{credentials.Domain}\\{_credentials.UserName}";
-
-		Console.WriteLine(userName);
+		string userName = string.IsNullOrEmpty(_credentials.Domain) // 도메인 컨트롤러 체크
+			? _credentials.UserName //  Not AD (일반)
+			: $"{credentials.Domain}\\{_credentials.UserName}"; // AD (Active Directory)
 
 		int result = WNetAddConnection2(netResource, _credentials.Password, userName, 0);
 
@@ -68,11 +69,16 @@ public partial class NetworkConnect : IDisposable
 		DisconnectNetworkDrive(_networkName, true);
 	}
 
-	~NetworkConnect()
-	{
-		Dispose(false);
-	}
+	~NetworkConnect() => Dispose(false);
 
+	/// <summary>
+	/// DeskTop `API` 
+	/// </summary>
+	/// <param name="netResource"></param>
+	/// <param name="password"></param>
+	/// <param name="username"></param>
+	/// <param name="flags"></param>
+	/// <returns></returns>
 	[DllImport("mpr.dll")]
 	private static extern int WNetAddConnection2(NetResource netResource, string password, string username, int flags);
 
