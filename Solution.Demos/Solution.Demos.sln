@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-Container", "Demo-Cont
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intellectual", "Intellectual\Intellectual.csproj", "{9C65A865-ACD5-4189-B60A-35968CF4F11F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-OpenXML", "Demo-OpenXML\Demo-OpenXML.csproj", "{25B34997-68B2-47E1-B315-1FDD790E6EE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -144,5 +146,9 @@ Global
 		{9C65A865-ACD5-4189-B60A-35968CF4F11F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C65A865-ACD5-4189-B60A-35968CF4F11F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C65A865-ACD5-4189-B60A-35968CF4F11F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25B34997-68B2-47E1-B315-1FDD790E6EE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25B34997-68B2-47E1-B315-1FDD790E6EE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25B34997-68B2-47E1-B315-1FDD790E6EE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25B34997-68B2-47E1-B315-1FDD790E6EE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
