@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Viv Internet" Height="450" Width="800">
 
     <DockPanel>
         <DockPanel DockPanel.Dock="Top">
-            <Button x:Name="ButtonGo" DockPanel.Dock="Right" Click="ButtonGo_Click" Content="Go"/>
+            <Button x:Name="ButtonGo" DockPanel.Dock="Right" Click="ButtonGo_Click" Content=" Go "/>
             <TextBox Name = "addressBar" Padding="10" FontSize="20"/>
         </DockPanel>
         <wv2:WebView2 Name = "webView" Source = "https://www.microsoft.com"/>

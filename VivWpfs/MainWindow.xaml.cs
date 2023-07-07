@@ -60,7 +60,6 @@ namespace VivWpfs
                 uri = v;
                 addressBar.Text = uri;
             }
-
         }
 
         public void Go(Uri uri)
