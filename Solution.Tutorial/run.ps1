@@ -1,5 +1,3 @@
-dotnet run --project .\Tutor.Abstract\Tutor.Abstract.csproj
+# dotnet run --project .\Tutor.Abstract\Tutor.Abstract.csproj
+dotnet run --project .\Tutor.AsyncAwait
 
-foreach ($item in $Args) {
-    Write-Output $item
-}

@@ -55,3 +55,17 @@
         </Content>
     </ItemGroup>
 ```
+
+## Access Modifiers (접근 한정자)
+
+* public : 엑세스 제한 없음
+* protected : 엑세스가 파생 클래스로 제한됨
+* internal : 엑세스가 현재 어셈블리로 제한됨
+* protected internal : 엑세스가 현재 어셈블리 또는 포함하는 클래스에서 파생 클래스로 제한됨
+* private : 엑세스가 포함하는 형식으로 제한됨
+* private protected : 엑세스가 포함하는 클래스 또는 파생 클래스로 제한됨
+
+## Async
+
+* 메서드, 람다, 무명 메서드를 비동기로 지정함
+* 메서드 또는 식에 사용하면 비동기 메서드라고 함
