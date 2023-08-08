@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutor.AsyncAwait", "Tutor.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutor.Throw", "Tutor.Throw\Tutor.csproj", "{A8AE8ADB-DEE6-4960-B159-F9F19D9BA41F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutor.Is", "Tutor.Is\Tutor.Is.csproj", "{7C477252-3811-4001-9084-30BB41E264F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{A8AE8ADB-DEE6-4960-B159-F9F19D9BA41F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8AE8ADB-DEE6-4960-B159-F9F19D9BA41F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8AE8ADB-DEE6-4960-B159-F9F19D9BA41F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C477252-3811-4001-9084-30BB41E264F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C477252-3811-4001-9084-30BB41E264F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C477252-3811-4001-9084-30BB41E264F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C477252-3811-4001-9084-30BB41E264F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
