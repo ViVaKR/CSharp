@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+...
+  <connectionStrings>
+    <add name="PgConnection" connectionString="host=ip.address.com;port=5432;database=dbName;user id=아이디;password=비밀번호" providerName="Npgsql" />
+</connectionStrings>
+...
+</configuration>
