@@ -22,6 +22,8 @@
 * 표준 한글 총 개수(조합 가능한 한글 코드 − 비표준 한글): `1,639,011개`
 * 방점 2개 또한 유니코드에 `U+302E(〮)와 U+302F(〯)`로 등록돼 있다.
 
+## 기타
+
 * 숫자 : 1234567890
 * 영소문자: abcdefghijklmnopqrstuvwxyz
 * 영대문자: ABCDEFGHIJKLMNOPQRSTUVWXYZ

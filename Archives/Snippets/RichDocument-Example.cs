@@ -16,7 +16,6 @@ Shape myPicture = document.Shapes.InsertPicture(document.CreatePosition(15),
     System.Drawing.Image.FromFile("beverages.png"));
 myPicture.HorizontalAlignment = ShapeHorizontalAlignment.Center;
 
-
 PowerPoint.OLEFormat ole = shape.OLEFormat;
 ole.Object.Activate();
 Excel.Workbook workbook = ole.Object;
