@@ -1,8 +1,6 @@
 {
-
     Xaxis = Chart.Axes(Ppt.XlAxisType.xlCategory);
     Yaxis = Chart.Axes(Ppt.XlAxisType.xlValue);
-
 
     Xaxis.CategoryNames = dataTable.Columns.Cast<DT.DataColumn>().Select(x => x.ColumnName).Skip(1).Take(4).ToArray();
 

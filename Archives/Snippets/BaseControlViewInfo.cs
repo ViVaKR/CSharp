@@ -14,12 +14,12 @@ private static bool CanCloseFunc(DialogResult parameter)
 }
 
 
-FlyoutAction action = new FlyoutAction() { Caption = "È®ÀÎ", Description = "ÇöÀç ÆûÀ» ´İÀ¸½Ã°Ú½À´Ï±î?" };
+FlyoutAction action = new FlyoutAction() { Caption = "í™•ì¸", Description = "ì¢…ë£Œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?" };
 
 Predicate<DialogResult> predicate = CanCloseFunc;
 
-FlyoutCommand command1 = new FlyoutCommand() { Text = "´İ±â", Result = DialogResult.Yes };
-FlyoutCommand command2 = new FlyoutCommand() { Text = "Ãë¼Ò", Result = DialogResult.No };
+FlyoutCommand command1 = new FlyoutCommand() { Text = "í™•ì¸", Result = DialogResult.Yes };
+FlyoutCommand command2 = new FlyoutCommand() { Text = "ì·¨ì†Œ", Result = DialogResult.No };
 action.Commands.Add(command1);
 action.Commands.Add(command2);
 
