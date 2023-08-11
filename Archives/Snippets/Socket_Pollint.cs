@@ -9,5 +9,3 @@ static class SocketExtensions
     catch (SocketException) { return false; }
   }
 }
-
-// c:>netstat -ano |findstr "5000"
