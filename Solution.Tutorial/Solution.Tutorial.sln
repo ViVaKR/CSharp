@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutor.Abstract", "Tutor.Abs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutor.AsyncAwait", "Tutor.AsyncAwait\Tutor.AsyncAwait.csproj", "{CB369D50-1742-4318-AEFB-75460B315C70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutor.Throw", "Tutor.Throw\Tutor.csproj", "{A8AE8ADB-DEE6-4960-B159-F9F19D9BA41F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutor.Is", "Tutor.Is\Tutor.Is.csproj", "{7C477252-3811-4001-9084-30BB41E264F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutor.Throw", "Tutor.Throw\Tutor.Throw.csproj", "{1CCA0B43-ED52-4486-9183-3FE11B9F106F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutor.Snippets", "Tutor.Snippets\Tutor.Snippets.csproj", "{93EC1C28-33C2-4CB6-A3A3-D0C62DDFBF89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +38,13 @@ Global
 		{7C477252-3811-4001-9084-30BB41E264F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C477252-3811-4001-9084-30BB41E264F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C477252-3811-4001-9084-30BB41E264F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CCA0B43-ED52-4486-9183-3FE11B9F106F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CCA0B43-ED52-4486-9183-3FE11B9F106F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CCA0B43-ED52-4486-9183-3FE11B9F106F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CCA0B43-ED52-4486-9183-3FE11B9F106F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93EC1C28-33C2-4CB6-A3A3-D0C62DDFBF89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93EC1C28-33C2-4CB6-A3A3-D0C62DDFBF89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93EC1C28-33C2-4CB6-A3A3-D0C62DDFBF89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93EC1C28-33C2-4CB6-A3A3-D0C62DDFBF89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
