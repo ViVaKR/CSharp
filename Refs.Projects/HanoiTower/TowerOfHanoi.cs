@@ -57,7 +57,7 @@ namespace HanoiTower
             if (n > 0)
             {
                 MoveTowers(n - 1, startPeg, tempPeg, endPeg);
-                Console.WriteLine($"Peg {startPeg.Alias} 를 {endPeg.Alias} 로 이동합니다.");
+                Console.WriteLine($"Peg {startPeg.Alias} 를 {endPeg.Alias} 로 이동합니다. ( {n} )");
 
                 // 문의에 대한 답변
                 SetPegs(startPeg.Peg, endPeg.Peg);
@@ -150,7 +150,9 @@ namespace HanoiTower
                 SetColor(new Random().Next(0, colors.Length));
             } while (Console.ForegroundColor == Console.BackgroundColor);
 
-            Thread.Sleep(3000);
+            // Thread.Sleep(5000);
+            Console.WriteLine("Press Any Key To Continue...\n=> ");
+            Console.ReadLine();
 
         }
 
