@@ -204,12 +204,12 @@ public class Recursion
     /// <summary>
     /// 자연수의 합계 구하기
     /// </summary>
-    /// <param name="inputNumber"></param>
+    /// <param name="number"></param>
     /// <returns></returns>
-    public int SumOfNaturalNumbers(int inputNumber)
+    public int SumOfNumbers(int number)
     {
-        if (inputNumber <= 1) return inputNumber;
-        return SumOfNaturalNumbers(inputNumber - 1) + inputNumber;
+        if (number <= 1) return number;
+        return SumOfNumbers(number - 1) + number;
     }
 
     /// <summary>

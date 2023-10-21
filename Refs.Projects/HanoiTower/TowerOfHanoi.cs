@@ -5,7 +5,7 @@ namespace HanoiTower
     public class TowerOfHanoi
     {
         private int Count = 0; // 총 횟수
-        private readonly int padding = 16; // A, B, C 판 사이의 패딩
+        private readonly int padding = 24; // A, B, C 판 사이의 패딩
         private readonly int level; // 판의 갯수
 
         // 각 장면 마다 콘솔 색상 변경하기 : 콘솔 색상의 총 갯수 = 16개
@@ -37,32 +37,34 @@ namespace HanoiTower
             // 최초 시작판 초기화 (Start, A 바닥판)
             for (int i = 0; i < level; i++)
             {
-                var pan = string.Join(string.Empty, Enumerable.Repeat("-", Math.Abs(i - level)));
+                var pan = string.Join(string.Empty.PadRight(2), Enumerable.Repeat('\u23AF', Math.Abs(i - level)));
                 pegA.Add(i, pan);
             }
+            Console.Clear();
+            DrawPeg(n, null, null);
 
-            // 최초 판 레이아웃 그리기
-            DrawPeg();
-
-            // 시작 키보드 입력 받기
-            Console.WriteLine("하노이탑을 시작합니다. 엔터키를 누르세요 ... ");
-            Console.ReadLine();
-
-            // 판 움직임 시작 트리거
-            MoveTowers(n, pegs[Peg.Start], pegs[Peg.End], pegs[Peg.Temp]);
+            // 1. Caller
+            MoveTowers(n, pegs[Peg.Start], pegs[Peg.Temp], pegs[Peg.End]);
         }
 
-        public void MoveTowers(int n, PegStatus startPeg, PegStatus endPeg, PegStatus tempPeg)
-        {
+        /// <summary>
+        /// Recursive Fuction
+        /// </summary>
+        /// <param name="n">판의 수</param>
+        /// <param name="start">A - 출발지</param>
+        /// <param name="temp">B - 경유지</param>/// 
+        /// <param name="end">C - 목적지</param>
+        public void MoveTowers(int n, PegStatus start, PegStatus temp, PegStatus end)
+        {                                   //!   (A)              (B)           (c)
             if (n > 0)
             {
-                MoveTowers(n - 1, startPeg, tempPeg, endPeg);
-                Console.WriteLine($"Peg {startPeg.Alias} 를 {endPeg.Alias} 로 이동합니다. ( {n} )");
+                //!                (A)   (C)   (B)
+                MoveTowers(n - 1, start, end, temp);
 
-                // 문의에 대한 답변
-                SetPegs(startPeg.Peg, endPeg.Peg);
+                SetPegs(n, start.Peg, end.Peg); // 판이동
 
-                MoveTowers(n - 1, tempPeg, endPeg, startPeg);
+                //!                (B)   (A)   (C)
+                MoveTowers(n - 1, temp, start, end);
             }
         }
 
@@ -71,7 +73,7 @@ namespace HanoiTower
         /// </summary>
         /// <param name="b">빼는 판</param>
         /// <param name="c">넣는 판</param>
-        private void SetPegs(Peg b, Peg c)
+        private void SetPegs(int n, Peg? b, Peg? c)
         {
             string peg = string.Empty;
 
@@ -112,16 +114,16 @@ namespace HanoiTower
                 case Peg.Temp: pegB.Add(pegB.Count, peg); break;
                 case Peg.End: pegC.Add(pegC.Count, peg); break;
             }
-            DrawPeg();
+            DrawPeg(n, b, c);
         }
 
         /// <summary>
         /// 판 그리기
         /// </summary>
-        private void DrawPeg()
+        private void DrawPeg(int n, Peg? from, Peg? to)
         {
-            var title = $"Count = {Count++}"; // 횟수 카운팅
-
+            Console.Clear();
+            var title = $"[{Count++}] Peg {n} : {from} -> {to}"; // 횟수 카운팅
             Console.WriteLine(string.Join(string.Empty, Enumerable.Repeat("=", title.Length)));
             Console.WriteLine(title);
             Console.WriteLine(string.Join(string.Empty, Enumerable.Repeat("=", title.Length)));
@@ -140,23 +142,26 @@ namespace HanoiTower
                 sb.Append(peg_b?.PadRight(padding) ?? string.Empty.PadRight(padding));
                 sb.AppendLine(peg_c ?? string.Empty);
             }
-
             Console.Write(sb?.ToString());
-
-            Console.WriteLine("-----A-----\t-----B-----\t-----C-----\n");
+            string line = string.Join(string.Empty, Enumerable.Repeat('=', 7));
+            Console.WriteLine($"{line} A {line}\t{line} B {line}\t{line} C {line}\n");
 
             do
             {
                 SetColor(new Random().Next(0, colors.Length));
             } while (Console.ForegroundColor == Console.BackgroundColor);
 
-            // Thread.Sleep(5000);
-            Console.WriteLine("Press Any Key To Continue...\n=> ");
-            Console.ReadLine();
+            // Thread.Sleep(3000);
 
+            Console.WriteLine("`Q` 키를 제외한 모든 키를 누르시면 계속 진행합니다....");
+            ConsoleKeyInfo cki = Console.ReadKey();
+            if (cki.Key == ConsoleKey.Q)
+            {
+                Console.WriteLine("\n하노이 타워를 종료합니다.");
+                Environment.Exit(0);
+            }
         }
 
         private void SetColor(int number) => Console.ForegroundColor = colors[number];
-
     }
 }

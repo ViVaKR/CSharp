@@ -1,20 +1,16 @@
 ﻿
-var binary = new DecimalToBinary();
+DecimalToBinary();
 
-
-
-public class DecimalToBinary
+static void DecimalToBinary()
 {
-    public DecimalToBinary()
-    {
-        string binary = FindBinary(232, "");
-    }
+    string binary = FindBinary(11, "");
+    Console.WriteLine(binary.PadLeft(32, '0'));
+}
 
-    public string FindBinary(int number, string result)
-    {
-        if(number == 0) return result;
+static string FindBinary(int number, string result)
+{
+    if (number == 0) return result;
 
-        result = number % 2 + result;
-        return FindBinary(number % 2, result);
-    }
+    result = number % 2 + result;
+    return FindBinary(number / 2, result);
 }

@@ -1,15 +1,15 @@
 ﻿using Demo_Recursion;
 
 var rec = new Recursion();
-Console.WriteLine("선택 >> ");
+Console.Write("선택 >> ");
 int choice = Convert.ToInt32(Console.ReadLine());
 
 var a = new int[] { -1, 0, 1, 2, 3, 4, 7, 9, 10, 20 };
 switch (choice)
 {
     case 1: Console.WriteLine(rec.RecursionA(1)); return;
-    case 2: Console.WriteLine(rec.DecimalToBinary(253, string.Empty)); return;
-    case 3: Console.WriteLine(rec.SumOfNaturalNumbers(10)); return;
+    case 2: Console.WriteLine(rec.DecimalToBinary(13, string.Empty)); return;
+    case 3: Console.WriteLine(rec.SumOfNumbers(5)); return;
     case 4: Console.WriteLine(rec.BinarySearch(a, 0, 10, 7)); return;
 }
 // ATM Analogy (비유)
