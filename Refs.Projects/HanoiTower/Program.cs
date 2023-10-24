@@ -3,16 +3,20 @@ using HanoiTower;
 
 internal class Program
 {
+    // 시작 포인트...
     private static void Main()
     {
-        Run(6);
+        // 1. 콜 스택 (1)
+        Run(1);
     }
 
     static void Run(int choice)
     {
         switch (choice)
         {
+            // 2. 콜 스택 (2)
             case 1: RunHanoi(); break; // 하노이 타워
+
             case 2: RunDifferentiation(); break; // 미분
             case 3: // 이진탐색
                 {
@@ -81,9 +85,15 @@ internal class Program
 
                     Span<int> sarr = new(new[] { 5, 3, 6, 9, 3, 1, 7, 2 });
                 }; break;
+            case 8:
+                {
+
+                }
+                break;
             default: break;
         }
     }
+
     static long size = 0;
     static int count = 0;
     static (long, int) GetFileSize(string dir)
@@ -204,28 +214,27 @@ internal class Program
 
     static void RunHanoi()
     {
-        // var demo = new DemoHanoi();
-        // demo.Hanoi(2, 'A', 'B', 'C');
         // 판 3종 (A, B, C) 초기화
-        var start = new PegStatus(Peg.Start); // A
-        var end = new PegStatus(Peg.End); // B
-        var temp = new PegStatus(Peg.Temp); // C
+        var start = new Pile(PileType.Start); // A
+        var end = new Pile(PileType.End); // B
+        var temp = new Pile(PileType.Temp); // C
 
-        // 전체 대상 판의 갯수 (Console.ReadLine() 으로 값을 받는 부분, 데모를 위하여 상수로 설정)
+        Console.Clear();
+
         Console.Write("판의 갯수를 넣어주세요: ");
-
 
         int n = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine();
+
         // 판 묶음 딕셔너리 구성
-        var dic = new Dictionary<Peg, PegStatus>
+        var dic = new Dictionary<PileType, Pile>
         {
-            {Peg.Start, start},
-            {Peg.Temp, temp},
-            {Peg.End, end}
+            {PileType.Start, start},
+            {PileType.Temp, temp},
+            {PileType.End, end}
         };
 
-        // 트리거
+        // 3. 콜스택 (3)
         _ = new TowerOfHanoi(dic, n);
     }
 

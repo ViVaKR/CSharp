@@ -16,14 +16,14 @@ namespace HanoiTower
         private readonly Dictionary<int, string> pegB;
         private readonly Dictionary<int, string> pegC;
 
-        public Dictionary<Peg, PegStatus> pegs;
+        public Dictionary<PileType, Pile> pegs;
 
         /// <summary>
         /// 생성자 파트
         /// </summary>
-        /// <param name="dic">판이 디동할 판 딕셔너리</param>
+        /// <param name="dic">판 (Peg, Pile) 관리 딕셔너리</param>
         /// <param name="n">판의 갯수</param>
-        public TowerOfHanoi(Dictionary<Peg, PegStatus> dic, int n)
+        public TowerOfHanoi(Dictionary<PileType, Pile> dic, int n)
         {
             level = n; // 판의 갯수
 
@@ -43,29 +43,33 @@ namespace HanoiTower
             Console.Clear();
             DrawPeg(n, null, null);
 
-            // 1. Caller
-            MoveTowers(n, pegs[Peg.Start], pegs[Peg.Temp], pegs[Peg.End]);
+            // --> Caller 콜스택번호 (4)
+            Hanoi(n, pegs[PileType.Start], pegs[PileType.Temp], pegs[PileType.End]);
         }
 
         /// <summary>
-        /// Recursive Fuction
+        /// Recursive Method
         /// </summary>
-        /// <param name="n">판의 수</param>
-        /// <param name="start">A - 출발지</param>
-        /// <param name="temp">B - 경유지</param>/// 
-        /// <param name="end">C - 목적지</param>
-        public void MoveTowers(int n, PegStatus start, PegStatus temp, PegStatus end)
-        {                                   //!   (A)              (B)           (c)
-            if (n > 0)
+        /// <param name="n"></param>
+        ///! <param name="start"> A </param>
+        ///! <param name="temp"> B </param>
+        ///! <param name="end"> C </param>
+        /// <summary>
+        public void Hanoi(int n, Pile start, Pile temp, Pile end)
+        {
+            if (n == 1)
             {
-                //!                (A)   (C)   (B)
-                MoveTowers(n - 1, start, end, temp);
-
-                SetPegs(n, start.Peg, end.Peg); // 판이동
-
-                //!                (B)   (A)   (C)
-                MoveTowers(n - 1, temp, start, end);
+                SetPegs(n, start.PileType, end.PileType);
+                return;
             }
+
+            //--> 출발지 (Start)
+            Hanoi(n - 1, start, end, temp);
+
+            SetPegs(n, start.PileType, end.PileType);
+
+            //--> 출발지 (Temp)
+            Hanoi(n - 1, temp, start, end); // 출발지 셋팅
         }
 
         /// <summary>
@@ -73,14 +77,14 @@ namespace HanoiTower
         /// </summary>
         /// <param name="b">빼는 판</param>
         /// <param name="c">넣는 판</param>
-        private void SetPegs(int n, Peg? b, Peg? c)
+        private void SetPegs(int n, PileType? b, PileType? c)
         {
             string peg = string.Empty;
 
             // 판 빼기 로직
             switch (b)
             {
-                case Peg.Start:
+                case PileType.Start:
                     {
                         if (pegA.Any())
                         {
@@ -89,7 +93,7 @@ namespace HanoiTower
                         }
 
                     }; break;
-                case Peg.Temp:
+                case PileType.Temp:
                     {
                         if (pegB.Any())
                         {
@@ -97,7 +101,7 @@ namespace HanoiTower
                             pegB.Remove(pegB.Keys.Last());
                         }
                     }; break;
-                case Peg.End:
+                case PileType.End:
                     {
                         if (pegC.Any())
                         {
@@ -110,9 +114,9 @@ namespace HanoiTower
             // 판 넣기 로직
             switch (c)
             {
-                case Peg.Start: pegA.Add(pegA.Count, peg); break;
-                case Peg.Temp: pegB.Add(pegB.Count, peg); break;
-                case Peg.End: pegC.Add(pegC.Count, peg); break;
+                case PileType.Start: pegA.Add(pegA.Count, peg); break;
+                case PileType.Temp: pegB.Add(pegB.Count, peg); break;
+                case PileType.End: pegC.Add(pegC.Count, peg); break;
             }
             DrawPeg(n, b, c);
         }
@@ -120,14 +124,14 @@ namespace HanoiTower
         /// <summary>
         /// 판 그리기
         /// </summary>
-        private void DrawPeg(int n, Peg? from, Peg? to)
+        private void DrawPeg(int n, PileType? from, PileType? to)
         {
             Console.Clear();
             var title = $"[{Count++}] Peg {n} : {from} -> {to}"; // 횟수 카운팅
             Console.WriteLine(string.Join(string.Empty, Enumerable.Repeat("=", title.Length)));
             Console.WriteLine(title);
             Console.WriteLine(string.Join(string.Empty, Enumerable.Repeat("=", title.Length)));
-
+            Console.WriteLine();
             // 세개의 딕셔너리에서 동일 인덱스의 판 을 라인별로 저장해 두기
             StringBuilder sb = new();
 
