@@ -1,4 +1,4 @@
-﻿namespace VivMauiApp;
+﻿namespace Demo;
 
 public partial class MainPage : ContentPage
 {

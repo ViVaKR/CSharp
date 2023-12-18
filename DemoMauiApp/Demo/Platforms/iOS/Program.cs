@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace VivMauiApp;
+namespace Demo;
 
 public class Program
 {

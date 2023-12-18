@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace VivMauiApp;
+namespace Demo;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate
