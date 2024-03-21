@@ -6,16 +6,25 @@ public static class Program
     {
         ExBitConverter bit = new();
 
-        Console.WriteLine($"GetBits(13, 1) = {bit.GetBits(13, 1)} >> ");
-        bit.GetBits(15, 3);
+        Console.WriteLine($"GetBits(13, 1) = {bit.GetBits(13, 1)}");
+        Console.WriteLine($"GetBits(15, 3) = {bit.GetBits(15, 3)}");
         Console.WriteLine();
 
-        Console.WriteLine("5832 Convert To Binary");
+        Console.Write("int value (-256)\tConvert To Binary => ");
         Console.Write("0b");
         for (int i = 31; i >= 0; i--)
         {
-            if ((i + 1) % 4 == 0) Console.Write("_");
-            Console.Write(bit.GetBits(5832, i) ? 1 : 0);
+            if ((i + 1) % 8 == 0) Console.Write("_");
+            Console.Write(bit.GetBits(-256, i) ? 1 : 0);
+        }
+        Console.WriteLine();
+
+        Console.Write("int value (-1)\tConvert To Binary => ");
+        Console.Write("0b");
+        for (int i = 31; i >= 0; i--)
+        {
+            if ((i + 1) % 8 == 0) Console.Write("_");
+            Console.Write(bit.GetBits(-1, i) ? 1 : 0);
         }
 
         Console.WriteLine();

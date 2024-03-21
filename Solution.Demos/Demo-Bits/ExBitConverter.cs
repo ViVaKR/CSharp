@@ -5,15 +5,9 @@ namespace Demo_Bits;
 
 public class ExBitConverter
 {
-    public bool GetBits(int num, int index)
-    {
-        return (num & (1 << index)) != 0;
-    }
+    public bool GetBits(int num, int index) => (num & (1 << index)) != 0;
 
-    public int SetBit(int num, int index)
-    {
-        return num | (1 << index);
-    }
+    public int SetBit(int num, int index) => num | (1 << index);
 
     public void MakeBit(long i)
     {
@@ -137,13 +131,14 @@ public class ExBitConverter
     /// Base64 Decoding
     /// </summary>
     /// <param name="base64"></param>
-    public void FromBase64(string base64){
+    public void FromBase64(string base64)
+    {
         byte[] bytes = Convert.FromBase64String(base64);
         Console.WriteLine($"{base64} = {Encoding.UTF8.GetString(bytes)}");
     }
 }
 
-/* 
+/*
 
 ! [ 접두사 ] !
 - 2진수 : 0b    (0b_01100_1011)
@@ -156,7 +151,7 @@ public class ExBitConverter
 - 영문 소문자 (a ~ z)    : 26
 - 숫자 (0 ~ 9)          : 10
 - 추가 `+`, `/`         : 2
-- 
+-
 - 총 64개의 인코딩 문자 6비트의 공간만 필요함 : 2 ^ 6비트 =  2 * 2 * 2 * 2 * 2 * 2 = 64
 - 한개의 아스키 문자(8비트), base64 문자(6비트) 의 최소 공배수 = 24비트 (3바이트) 이므로 4개의 base64 인코딩 값을 표현할 수 있음
 - (예) : `ABC` 3개의 바이트는 6비트 씩 나누어 4개의 base64 인코딩 문자로 변경

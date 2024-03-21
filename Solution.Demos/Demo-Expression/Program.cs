@@ -36,6 +36,8 @@
     Console.WriteLine(binary);
     Console.WriteLine();
 
+    var ep = Expression.Add(a,b);
+
     //! CatchBlock : try 블록의 catch 문을 나타냄
 
     //! ConditionalExpression : 조건부 연산자가 있는 식
@@ -134,5 +136,4 @@ exp.Run();
 
 {
     Expression<Func<int, int, bool>> expr1 = (a, b) => a > b;
-    
 }
