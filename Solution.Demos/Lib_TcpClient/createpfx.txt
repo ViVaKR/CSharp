@@ -1,1 +1,0 @@
-openssl pkcs12 -export -out contoso.com.pfx -inkey contoso.com.key -in contoso.com.crt
