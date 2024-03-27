@@ -1,0 +1,39 @@
+$ dotnet new list
+
+템플릿 이름                               약식 이름           언어        태그                                 
+----------------------------------------  ------------------  ----------  -------------------------------------
+Angular를 사용한 ASP.NET Core             angular             [C#]        Web/MVC/SPA                          
+ASP.NET Core gRPC 서비스                  grpc                [C#]        Web/gRPC                             
+ASP.NET Core with React.js and Redux      reactredux          [C#]        Web/MVC/SPA                          
+ASP.NET Core 비어 있음                    web                 [C#],F#     Web/Empty                            
+ASP.NET Core 웹 API                       webapi              [C#],F#     Web/WebAPI                           
+ASP.NET Core 웹앱                         webapp,razor        [C#]        Web/MVC/Razor Pages                  
+ASP.NET Core 웹앱(Model-View-Controller)  mvc                 [C#],F#     Web/MVC                              
+Blazor WebAssembly 앱                     blazorwasm          [C#]        Web/Blazor/WebAssembly/PWA           
+Blazor WebAssembly 앱이 비어 있습니다.    blazorwasm-empty    [C#]        Web/Blazor/WebAssembly/PWA/Empty     
+Blazor 서버 앱이 비어 있습니다.           blazorserver-empty  [C#]        Web/Blazor/Empty                     
+dotnet gitignore 파일                     gitignore                       Config                               
+dotnet 로컬 도구 매니페스트 파일          tool-manifest                   Config                               
+EditorConfig 파일                         editorconfig                    Config                               
+global.json 파일                          globaljson                      Config                               
+MSBuild Directory.Build.props 파일        buildprops                      MSBuild/props                        
+MSBuild Directory.Build.targets 파일      buildtargets                    MSBuild/props                        
+MSTest Test Project                       mstest              [C#],F#,VB  Test/MSTest                          
+MVC ViewImports                           viewimports         [C#]        Web/ASP.NET                          
+MVC ViewStart                             viewstart           [C#]        Web/ASP.NET                          
+NuGet 구성                                nugetconfig                     Config                               
+NUnit 3 Test Item                         nunit-test          [C#],F#,VB  Test/NUnit                           
+NUnit 3 Test Project                      nunit               [C#],F#,VB  Test/NUnit                           
+Razor 구성 요소                           razorcomponent      [C#]        Web/ASP.NET                          
+Razor 클래스 라이브러리                   razorclasslib       [C#]        Web/Razor/Library/Razor Class Library
+Razor 페이지                              page                [C#]        Web/ASP.NET                          
+React.js를 사용한 ASP.NET Core            react               [C#]        Web/MVC/SPA                          
+xUnit Test Project                        xunit               [C#],F#,VB  Test/xUnit                           
+블레이저 서버 앱                          blazorserver        [C#]        Web/Blazor                           
+솔루션 파일                               sln,solution                    Solution                             
+웹 구성                                   webconfig                       Config                               
+작업자 서비스                             worker              [C#],F#     Common/Worker/Web                    
+콘솔 앱                                   console             [C#],F#,VB  Common/Console                       
+클래스 라이브러리                         classlib            [C#],F#,VB  Common/Library                       
+프로토콜 버퍼 파일                        proto                           Web/gRPC                             
+
