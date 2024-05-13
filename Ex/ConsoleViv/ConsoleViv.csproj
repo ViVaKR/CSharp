@@ -8,7 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <Folder Include="Models/" />
+    <Folder Include="Playground/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StringLib\StringLib.csproj" />
   </ItemGroup>
 
 </Project>
