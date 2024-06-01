@@ -2,5 +2,7 @@
 
 public class Utils
 {
-    // 힙 하드 제한
+    public int Height { get; set; }
+    public int Width { get; set; }
+    public int Depth { get; set; }
 }
