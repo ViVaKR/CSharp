@@ -1,43 +1,20 @@
-﻿using System.Data;
-using UtilityLibraries;
+﻿
+using ConsoleViv;
 
-// using ConsoleViv.Playground;
-
-// Console.WriteLine("What is your name?");
-// var name = Console.ReadLine();
-// var currentDate = DateTime.Now;
-// Console.WriteLine($"{Environment.NewLine}Hello, {name}, on {currentDate:d} at {currentDate:t}!");
-
-// int a = 123;
-// int b = 456;
-// int sum = a + b;
-// Console.WriteLine(sum);
-// Generics generics = new();
-// generics.Efficiency();
-
-int row = 0;
-do
+// Caller
+await SimpleTask.RunAsyncA().ContinueWith(x =>
 {
-    if (row == 0 || row >= 25)
-        ResetConsole();
+    SimpleTask.RunB();
 
-    string? input = Console.ReadLine();
-    if (string.IsNullOrEmpty(input)) break;
-    Console.WriteLine($"Input: {input}");
-    Console.WriteLine($"Starts with uppercase? {(input.StartsWithUpper() ? "Yes" : "No")}");
-    Console.WriteLine();
-    row += 4;
-} while (true);
+}, TaskContinuationOptions.OnlyOnRanToCompletion);
+
+Console.Clear();
+Console.WriteLine("[ ref vs out 차이점 ]");
+
+int a = 10; // ref 는 초기화 필요
+int b = 5;
+int sum;    // out 은 초기화 불 필요
+SimpleTask.Add(ref a, b, out sum); // Call by reference
+Console.WriteLine($"{sum} = {a} + {b}"); // 15
 
 
-void ResetConsole()
-{
-    if (row > 0)
-    {
-        Console.WriteLine("Press any key to continue...");
-        Console.ReadKey();
-    }
-    Console.Clear();
-    Console.WriteLine($"{Environment.NewLine}Press <Enter> only to exit; oterwise, enter a string and press <Enter>:{Environment.NewLine}");
-    row = 3;
-}
