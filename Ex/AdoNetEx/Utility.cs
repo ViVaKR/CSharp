@@ -32,4 +32,18 @@ public class Utility
         }
         return tables;
     }
+
+    // 오일러 수식을 이용한 원주율 계산
+    public static async Task<double> GetPIDigitsAsync()
+    {
+        return await Task.Run(() =>
+        {
+            double rs = 0;
+            for (double i = 1; i <= 100000; i++)
+            {
+                rs += (1.0 / Math.Pow(i, 2));
+            }
+            return Math.Sqrt(rs * 6);
+        });
+    }
 }
