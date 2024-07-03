@@ -1,30 +1,14 @@
-﻿
+﻿using System.Reflection.Metadata.Ecma335;
 using ConsoleViv;
 
-// int k = 10;
-// int t = 5;
-// if ((k -= t) == 5)
-// {
-//     ;
-// }
+Task t1 = Utility.GetExternalIp();
+Task t2 = Utility.Sum();
+Task t3 = Utility.Multiply();
+Task t4 = Utility.Subtract();
+Task t5 = Task.Run(() => Console.WriteLine("Task 5 ============================"));
 
-// // Caller
-// await SimpleTask.RunAsyncA().ContinueWith(x =>
-// {
-//     SimpleTask.RunB();
+// await Task.WhenAll(t1, t2, t3, t4);
 
-// }, TaskContinuationOptions.OnlyOnRanToCompletion);
+await Task.WhenAll(t1, t2, t3, t4, t5).ContinueWith(x => Console.WriteLine("All Tasks Completed!"));
 
-// Console.Clear();
-// Console.WriteLine("[ ref vs out 차이점 ]");
-
-// int a = 10; // ref 는 초기화 필요
-// int b = 5;
-// int sum;    // out 은 초기화 불 필요
-// SimpleTask.Add(ref a, b, out sum); // Call by reference
-// Console.WriteLine($"{sum} = {a} + {b}"); // 15
-
-await Task.Run(async () =>
-{
-    await Utility.GetExternalIp();
-});
+// await Task.Run(() => t6);
