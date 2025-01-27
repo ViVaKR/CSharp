@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Start", "Start\Start.csproj", "{9F9648BB-7C5A-4722-A414-94AB1330A832}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hanoi", "Hanoi\Hanoi.csproj", "{4CEE1E88-2BDA-4BDF-B596-CB2A16F8D9D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{9F9648BB-7C5A-4722-A414-94AB1330A832}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F9648BB-7C5A-4722-A414-94AB1330A832}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F9648BB-7C5A-4722-A414-94AB1330A832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CEE1E88-2BDA-4BDF-B596-CB2A16F8D9D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CEE1E88-2BDA-4BDF-B596-CB2A16F8D9D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CEE1E88-2BDA-4BDF-B596-CB2A16F8D9D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CEE1E88-2BDA-4BDF-B596-CB2A16F8D9D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
