@@ -1,3 +1,3 @@
 #! /usr/bin/env zsh
 
-dotnet run --project Hanoi
+dotnet run --project ReadTxt

@@ -1,3 +1,3 @@
 #! /usr/bin/env zsh
 
-dotnet run --project VarMemory
+dotnet run --project TaskDemo
