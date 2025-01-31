@@ -5,6 +5,22 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="log.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <TargetPath>assets/log.txt</TargetPath>
+    </None>
+  </ItemGroup>
+
+  <Target Name="HelloWorld">
+    <Message Text="Configuration is $(Configuration)"></Message>
+    <Message Text="MSBuildToolsPath is $(MSBuildToolsPath)"></Message>
+
+  </Target>
+
 
 </Project>

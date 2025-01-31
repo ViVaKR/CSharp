@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PwshModule.UnitTests", "Pws
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank", "Bank\Bank.csproj", "{B19461DA-6AA3-4B3B-8B87-D443709EF2AC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank.UnitTests", "Bank.UnitTests\Bank.UnitTests.csproj", "{F54A84B6-6E76-4FD1-8A1B-058C355D7424}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,5 +68,9 @@ Global
 		{B19461DA-6AA3-4B3B-8B87-D443709EF2AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B19461DA-6AA3-4B3B-8B87-D443709EF2AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B19461DA-6AA3-4B3B-8B87-D443709EF2AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F54A84B6-6E76-4FD1-8A1B-058C355D7424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F54A84B6-6E76-4FD1-8A1B-058C355D7424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F54A84B6-6E76-4FD1-8A1B-058C355D7424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F54A84B6-6E76-4FD1-8A1B-058C355D7424}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
