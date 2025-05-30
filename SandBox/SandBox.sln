@@ -7,15 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Start", "Start\Start.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hanoi", "Hanoi\Hanoi.csproj", "{4CEE1E88-2BDA-4BDF-B596-CB2A16F8D9D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadTxt", "ReadTxt\ReadTxt.csproj", "{576AA4C1-43AC-4E1A-B85E-CC977CFDFF66}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{9F9648BB-7C5A-4722-A414-94AB1330A832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -26,9 +21,8 @@ Global
 		{4CEE1E88-2BDA-4BDF-B596-CB2A16F8D9D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CEE1E88-2BDA-4BDF-B596-CB2A16F8D9D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CEE1E88-2BDA-4BDF-B596-CB2A16F8D9D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{576AA4C1-43AC-4E1A-B85E-CC977CFDFF66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{576AA4C1-43AC-4E1A-B85E-CC977CFDFF66}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{576AA4C1-43AC-4E1A-B85E-CC977CFDFF66}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{576AA4C1-43AC-4E1A-B85E-CC977CFDFF66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
