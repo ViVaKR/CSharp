@@ -2,7 +2,7 @@ namespace Helper;
 
 public class Files
 {
-    public void DeleteFilesWithFileName(DirectoryInfo targetDir, string[] targetFiles)
+    public static void DeleteFilesWithFileName(DirectoryInfo targetDir, string[] targetFiles)
     {
         var fileArray = targetDir.GetFiles("*.txt");
         var files = fileArray.ToList();

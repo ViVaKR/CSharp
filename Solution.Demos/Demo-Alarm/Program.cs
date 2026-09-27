@@ -1,9 +1,4 @@
-﻿using Demo_Alarm;
-using Quartz;
-using Quartz.Impl;
-using Quartz.Logging;
-
-TimeSpan a1 = DateTime.Now.TimeOfDay;  //-> 14:34:45.3057919
+﻿TimeSpan a1 = DateTime.Now.TimeOfDay;  //-> 14:34:45.3057919
 
 // Case 1 : 의도적으로 현재 시간 보다 소(작다 소) 시간
 TimeSpan a2 = TimeSpan.Parse("12:10"); //-> 12:10:00

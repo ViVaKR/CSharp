@@ -1,11 +1,12 @@
 namespace Helper;
+
 using static System.Console;
 public class Games
 {
     /// <summary>
     /// 야구게임
     /// </summary>
-    public void Game011()
+    public static void Game011()
     {
         bool isStart = false;
         int strike = 0, ball = 0;
@@ -59,7 +60,7 @@ public class Games
             #endregion
             #region 2번째 숫자
             int input_2;
-            while (true) // 두번째 숫자 입력 
+            while (true) // 두번째 숫자 입력
             {
                 Write("두번째 숫자를 입력해주세요!(1~9) => ");
                 if (int.TryParse(ReadLine(), out input_2))

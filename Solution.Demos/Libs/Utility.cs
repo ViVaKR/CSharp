@@ -28,7 +28,7 @@ public static class Utility
 
             var dnsHost = Dns.GetHostEntry(NCSI_DNS);
 
-            int count = dnsHost.AddressList.Count();
+            int count = dnsHost.AddressList.Length;
             if (count < 0 || dnsHost.AddressList[0].ToString() != NCSI_DNS_IP_ADDRESS)
             {
                 return false;
@@ -72,7 +72,8 @@ public static class Utility
     /// </summary>
     /// <param name="url">대상 URL</param>
     /// <returns></returns>
-    public static string GetWebPage(string url) {
+    public static string GetWebPage(string url)
+    {
 
         try
         {

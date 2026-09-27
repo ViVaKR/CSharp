@@ -22,7 +22,7 @@ public class Recursion
         }
     }
 
-    public void Merge(int[] data, int start, int mid, int end)
+    public static void Merge(int[] data, int start, int mid, int end)
     {
         // build temp array to avoid modifying the original contents
         int[] temp = new int[end - start + 1];
@@ -73,7 +73,7 @@ public class Recursion
     /// </summary>
     /// <param name="n">최종 수</param>
     /// <returns>수열의 합</returns>
-    public long Fibonacci(long n)
+    public static long Fibonacci(long n)
     {
         if (n == 0 || n == 1) return n;
         else return Fibonacci(n - 1) + Fibonacci(n - 2);
@@ -84,7 +84,7 @@ public class Recursion
     /// </summary>
     /// <param name="input">최대수</param>
     /// <returns> 1 부터 input 까지의 합계</returns>
-    public int Summation(int input)
+    public static int Summation(int input)
     {
         if (input <= 1) return input;
         return input + Summation(input - 1);
@@ -95,7 +95,7 @@ public class Recursion
     /// </summary>
     /// <param name="number">10진수</param>
     /// <returns>2진수</returns>
-    public string NumberToBinary(int number, string binary)
+    public static string NumberToBinary(int number, string binary)
     {
         if (number == 0) return binary;
 
@@ -121,7 +121,7 @@ public class Recursion
     /// 앞뒤에서 중앙으로 축소해들어감
     /// </summary>
     /// <param name="input">kayak</param>
-    public bool Palindrome(string input)
+    public static bool Palindrome(string input)
     {
         // base-case / stopping condition
         if (input.Length == 0 || input.Length == 1)
@@ -141,7 +141,7 @@ public class Recursion
     /// </summary>
     /// <param name="input">the simple engineer</param>
     /// <returns>reenigne elpmis eht</returns>
-    public string ReverseString(string input)
+    public static string ReverseString(string input)
     {
         // What is the base case?
         // When can I no longer continue?
@@ -165,7 +165,7 @@ public class Recursion
         //! input: "hello",  Call -> ReverseString("hello");
     }
 
-    public int RecursionA(int num)
+    public static int RecursionA(int num)
     {
         if (num == 10) return 10;
         return RecursionA(num + 1);
@@ -179,7 +179,7 @@ public class Recursion
     /// <param name="right">찾을 마지막 인덱스</param>
     /// <param name="x">찾을 값</param>
     /// <returns>찾은 인덱스번호</returns>
-    public int BinarySearch(int[] A, int left, int right, int x)
+    public static int BinarySearch(int[] A, int left, int right, int x)
     {
         // 종료조건 : 시작인덱스가 마지막 인덱스 보다 클때
         // 즉 없을 때
@@ -205,7 +205,7 @@ public class Recursion
     /// </summary>
     /// <param name="number"></param>
     /// <returns></returns>
-    public int SumOfNumbers(int number)
+    public static int SumOfNumbers(int number)
     {
         if (number <= 1) return number;
         return SumOfNumbers(number - 1) + number;
@@ -217,7 +217,7 @@ public class Recursion
     /// <param name="number"></param>
     /// <param name="result"></param>
     /// <returns>number 의 2진수</returns>
-    public string? DecimalToBinary(int number, string result)
+    public static string? DecimalToBinary(int number, string result)
     {
         if (number == 0) return result;
 
