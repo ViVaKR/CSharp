@@ -6,33 +6,33 @@ namespace Blog.ViV.Bot
 
     public class DiscordBot
     {
-        public  DiscordSocketClient client { get; set; }
-        public CommandService commands { get; set; }
+        public DiscordSocketClient Client { get; set; }
+        public CommandService Commands { get; set; }
         private const string token = "토큰번호";
 
         public DiscordBot()
         {
-            client = new DiscordSocketClient(new DiscordSocketConfig
+            Client = new DiscordSocketClient(new DiscordSocketConfig
             {
                 LogLevel = Discord.LogSeverity.Verbose
             });
 
-            commands = new CommandService(new CommandServiceConfig
+            Commands = new CommandService(new CommandServiceConfig
             {
                 LogLevel = Discord.LogSeverity.Info,
                 CaseSensitiveCommands = false
             });
 
-            client.Log += Client_Log;
-            commands.Log += Commands_Log;
+            Client.Log += Client_Log;
+            Commands.Log += Commands_Log;
         }
 
         public async void Start()
         {
-            await client.LoginAsync(Discord.TokenType.Bot, token);
-            await client.StartAsync();
+            await Client.LoginAsync(Discord.TokenType.Bot, token);
+            await Client.StartAsync();
 
-            client.MessageReceived += Client_MessageReceived;
+            Client.MessageReceived += Client_MessageReceived;
 
             // Wait infinitely so your bot actually stays connectd
             await Task.Delay(Timeout.Infinite);
@@ -45,10 +45,10 @@ namespace Blog.ViV.Bot
             Console.WriteLine($"== {arg.CleanContent} ==");
             int pos = 0;
 
-            if (!message.HasMentionPrefix(client.CurrentUser, ref pos)
+            if (!message.HasMentionPrefix(Client.CurrentUser, ref pos)
                 || message.Author.IsBot) return;
 
-            SocketCommandContext context = new SocketCommandContext(client, message);
+            SocketCommandContext context = new SocketCommandContext(Client, message);
 
             await context.Channel.SendMessageAsync($"{DateTime.Now} 회신: {message.CleanContent}");
 

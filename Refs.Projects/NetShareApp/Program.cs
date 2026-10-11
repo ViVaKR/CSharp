@@ -16,7 +16,7 @@ internal class Program
 	private static readonly string driveLetter = "K";
 
 	// 다운로드할 파일목록
-	private static readonly List<string> _downloads = new() { "111.zip", "222.zip", "333.zip" };
+	private static readonly List<string> _downloads = ["111.zip", "222.zip", "333.zip"];
 
 	private static void Main()
 	{
@@ -24,7 +24,7 @@ internal class Program
 	}
 
 	/// <summary>
-	/// (트리거 메서드) 
+	/// (트리거 메서드)
 	/// </summary>
 	/// <param name="_networkPath">공유폴더</param>
 	/// <param name="_driveLetter">공유폴더 드라이브 명</param>
@@ -50,7 +50,7 @@ internal class Program
 			{
 				// 연결후 zip 파일 목록 작성
 				var files = Directory.GetFiles(_driveLetter + @":\", "*.zip", SearchOption.TopDirectoryOnly).ToList();
-				
+
 				// 다운로드할 파일 목록과 연결된 공유 폴더 파일명 비교 후 해당 파일 목록 작성
 				var result = files.Where(x => _downloads.Any(y => x.Contains(y))).ToList();
 
@@ -60,7 +60,7 @@ internal class Program
 					Console.WriteLine($"{item}"); // 다운로드 하는 파일 명 출력
 
 					// 문의에 대한 답변 (파일 카피, 대상 폴더 지정)
-					File.Copy(fi.FullName, $@"D:\Temp\{fi.Name}"); 
+					File.Copy(fi.FullName, $@"D:\Temp\{fi.Name}");
 				}
 
 				// 네크워크 드라이브 해제
@@ -77,4 +77,3 @@ internal class Program
 		}
 	}
 }
-
